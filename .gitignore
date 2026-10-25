@@ -1,0 +1,10 @@
+# Keep GitHub Pages lean: only the live site is tracked.
+*
+!.gitignore
+!README.md
+!index.html
+!viewer.html
+!ontolex_graph.js
+!dilaf_tmh_fra_v1.3.json
+!labels.json
+!mermaid-diagram.png

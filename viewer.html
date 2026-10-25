@@ -1,0 +1,3170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DiLAF · Tamajaq–Français</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f6f4ef;
+      --bg-soft: #ebe7df;
+      --paper: #fffcf7;
+      --ink: #1c1916;
+      --mute: #5c564e;
+      --faint: #8a8378;
+      --line: #d8d2c6;
+      --accent: #2a4a3e;
+      --chip: #f0ebe3;
+      --bar: #3d6b58;
+      --bar-track: #e8e2d8;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: "Noto Sans", system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      background:
+        linear-gradient(180deg, #faf8f3 0%, var(--bg) 40%, var(--bg-soft) 100%);
+    }
+
+    .shell {
+      max-width: 78rem;
+      margin: 0 auto;
+      padding: 0 1.25rem 3.5rem;
+    }
+
+    header {
+      padding: 1.75rem 0 1rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.75rem 1.5rem;
+      align-items: end;
+    }
+    @media (max-width: 720px) {
+      header { grid-template-columns: 1fr; }
+    }
+    .brand {
+      font-family: "Noto Serif", Georgia, serif;
+      font-size: clamp(2rem, 4.5vw, 2.75rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.08;
+      margin: 0 0 0.35rem;
+    }
+    .brand span { font-weight: 500; color: var(--mute); }
+    .lede {
+      margin: 0;
+      color: var(--mute);
+      font-size: 0.98rem;
+      max-width: 36rem;
+    }
+
+    nav.tabs {
+      display: flex;
+      gap: 0.2rem;
+      border-bottom: 1px solid var(--line);
+      grid-column: 1 / -1;
+    }
+    nav.tabs button {
+      appearance: none;
+      border: 0;
+      background: transparent;
+      font: inherit;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--faint);
+      padding: 0.6rem 0.95rem;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+    }
+    nav.tabs button:hover { color: var(--ink); }
+    nav.tabs button.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    .panel { display: none; }
+    .panel.active { display: block; }
+
+    .words-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 2.6rem;
+      gap: 0.75rem 0.85rem;
+      align-items: start;
+    }
+    @media (max-width: 640px) {
+      .words-layout {
+        grid-template-columns: 1fr;
+      }
+      .alpha-rail {
+        position: sticky;
+        top: 0;
+        flex-direction: row !important;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        max-height: none !important;
+        padding: 0.35rem 0 !important;
+        border-left: 0 !important;
+        border-bottom: 1px solid var(--line);
+        margin-bottom: 0.35rem;
+        order: -1;
+      }
+      .alpha-rail button {
+        width: auto !important;
+        min-width: 1.55rem;
+        padding: 0.2rem 0.3rem !important;
+      }
+    }
+
+    .alpha-rail {
+      position: sticky;
+      top: 0.75rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.08rem;
+      max-height: calc(100vh - 1.5rem);
+      overflow-y: auto;
+      padding: 0.35rem 0.15rem;
+      border-left: 1px solid var(--line);
+      scrollbar-width: thin;
+    }
+    .alpha-rail button {
+      appearance: none;
+      border: 0;
+      background: transparent;
+      font-family: "Noto Sans", sans-serif;
+      font-size: 0.72rem;
+      font-weight: 650;
+      color: var(--faint);
+      width: 1.7rem;
+      padding: 0.18rem 0;
+      border-radius: 5px;
+      cursor: pointer;
+      line-height: 1;
+    }
+    .alpha-rail button:hover:not(:disabled) {
+      color: var(--ink);
+      background: var(--chip);
+    }
+    .alpha-rail button.active {
+      color: #fff;
+      background: var(--accent);
+    }
+    .alpha-rail button:disabled {
+      opacity: 0.28;
+      cursor: default;
+    }
+    .alpha-rail .alpha-all {
+      font-size: 0.62rem;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.2rem;
+      padding: 0.28rem 0.1rem;
+      border-bottom: 1px solid var(--line);
+      border-radius: 5px 5px 0 0;
+      width: 100%;
+    }
+
+    .bar {
+      position: sticky;
+      top: 0;
+      z-index: 4;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      padding: 0.75rem 0;
+      background: linear-gradient(180deg, rgba(246, 244, 239, 0.97) 70%, transparent);
+    }
+    input[type="search"], select {
+      font: inherit;
+      color: var(--ink);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 0.65rem 0.8rem;
+    }
+    input[type="search"] { flex: 1 1 16rem; min-width: 12rem; }
+    input[type="search"]:focus, select:focus {
+      outline: 2px solid rgba(42, 74, 62, 0.25);
+      border-color: var(--accent);
+    }
+    .count {
+      color: var(--faint);
+      font-size: 0.88rem;
+      margin: 0.15rem 0 0.85rem;
+    }
+
+    /* Words — multi-column cards */
+    .words-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.85rem 1rem;
+    }
+    @media (max-width: 820px) {
+      .words-grid { grid-template-columns: 1fr; }
+    }
+    article.word {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1rem 1.15rem 1.05rem;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    /* Labels = no box. Values = solid chip. Our English = bare italic. */
+    .add {
+      font-family: "Noto Sans", system-ui, sans-serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 0.68rem;
+      line-height: 1.2;
+      color: #9a9186;
+      white-space: nowrap;
+    }
+    .add::before { content: "· "; opacity: 0.7; }
+
+    .tag-src {
+      font-family: "Noto Sans", sans-serif;
+      font-weight: 700;
+      font-size: 0.72rem;
+      color: var(--accent);
+    }
+
+    .tag-inline {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.2rem;
+      flex-wrap: wrap;
+      line-height: 1.25;
+    }
+    .lemma-label,
+    .pos-lab,
+    .ids-row .id-item {
+      flex-wrap: wrap;
+    }
+
+    /* Value chip — the only “box” */
+    .val-chip {
+      display: inline-block;
+      font-family: "Noto Sans", sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--ink);
+      background: #ebe6dc;
+      border: 1px solid #d5cec2;
+      border-radius: 6px;
+      padding: 0.15rem 0.5rem;
+      line-height: 1.3;
+      max-width: 100%;
+      word-break: break-word;
+    }
+    .val-chip.soft {
+      font-weight: 600;
+      background: #f3efe8;
+      border-color: #e0d9cd;
+    }
+
+    /* Header: lemma left, POS right */
+    .word-top {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.35rem 0.85rem;
+      align-items: start;
+      padding-bottom: 0.4rem;
+    }
+    @media (max-width: 420px) {
+      .word-top { grid-template-columns: 1fr; }
+    }
+    .word-left { min-width: 0; }
+    .lemma-label {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.28rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.05rem;
+    }
+    .lemma {
+      font-family: "Noto Serif", "Noto Sans", Georgia, serif;
+      font-size: clamp(1.75rem, 3.4vw, 2.2rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin: 0;
+      color: var(--ink);
+      font-kerning: normal;
+      font-variant-ligatures: none;
+    }
+    .fra-line {
+      margin: 0.35rem 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.3rem 0.5rem;
+    }
+    .fra-line .fra-val {
+      font-size: 1.02rem;
+      font-weight: 600;
+      line-height: 1.3;
+      color: var(--ink);
+    }
+    .fra-line.empty .fra-val {
+      font-weight: 400;
+      font-style: italic;
+      color: var(--faint);
+      font-size: 0.88rem;
+    }
+
+    .pos-block {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.25rem;
+      text-align: right;
+      max-width: 15rem;
+    }
+    .pos-block .pos-lab {
+      display: inline-flex;
+      align-items: baseline;
+      justify-content: flex-end;
+      gap: 0.2rem;
+      flex-wrap: wrap;
+    }
+    .pos-block .pos-val {
+      display: inline-flex;
+      align-items: baseline;
+      justify-content: flex-end;
+      gap: 0.3rem;
+      flex-wrap: wrap;
+    }
+
+    .ids-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem 0.75rem;
+      padding: 0.28rem 0 0.4rem;
+      border-top: 1px solid #eee9e0;
+      font-size: 0.72rem;
+      color: var(--mute);
+    }
+    .ids-row .id-item {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.25rem;
+      flex-wrap: wrap;
+    }
+    .ids-row .attr {
+      font-family: "Noto Sans", monospace;
+      font-weight: 650;
+      font-size: 0.72rem;
+      color: var(--ink);
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* FORM / SENSE blocks */
+    details.zone {
+      border-top: 1px solid #eee9e0;
+      padding: 0.15rem 0 0.1rem;
+    }
+    details.zone.empty > summary .ztag { color: var(--faint); }
+    details.zone summary {
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: baseline;
+      gap: 0.3rem;
+      flex-wrap: wrap;
+      padding: 0.28rem 0;
+      user-select: none;
+    }
+    details.zone summary::-webkit-details-marker { display: none; }
+    details.zone summary .chev {
+      color: var(--faint);
+      font-size: 0.7rem;
+      width: 0.7rem;
+      transition: transform 0.12s;
+    }
+    details.zone[open] summary .chev { transform: rotate(90deg); display: inline-block; }
+    details.zone summary .ztag {
+      font-family: "Noto Sans", sans-serif;
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: var(--ink);
+    }
+    details.zone summary .zcount {
+      font-size: 0.7rem;
+      color: var(--faint);
+      font-variant-numeric: tabular-nums;
+      margin-left: auto;
+    }
+    details.zone .zone-body {
+      padding: 0.05rem 0 0.4rem 0.75rem;
+      border-left: 2px solid #e8e2d8;
+      margin: 0 0 0.15rem 0.15rem;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: minmax(9.5rem, 13rem) 1fr;
+      gap: 0.15rem 0.55rem;
+      align-items: baseline;
+      margin: 0.28rem 0;
+    }
+    @media (max-width: 520px) {
+      .row { grid-template-columns: 1fr; }
+    }
+    .row.empty-row .rval {
+      color: var(--faint);
+      font-style: italic;
+      font-size: 0.82rem;
+      font-weight: 400;
+    }
+    .rname {
+      display: inline-flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.2rem;
+    }
+    .rname .tag-src { font-size: 0.78rem; }
+    .rval {
+      font-family: "Noto Sans", sans-serif;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.35;
+      min-width: 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.3rem;
+    }
+    .rval .empty-dash {
+      color: var(--faint);
+      font-style: italic;
+      font-weight: 400;
+      font-size: 0.85rem;
+    }
+
+    .ex-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .ex-list li {
+      font-family: "Noto Sans", sans-serif;
+      font-style: italic;
+      font-weight: 500;
+      color: var(--mute);
+      font-size: 0.95rem;
+      line-height: 1.4;
+      padding-left: 0.55rem;
+      border-left: 2px solid var(--line);
+    }
+
+    .rel-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+    }
+    button.rel {
+      appearance: none;
+      font: inherit;
+      font-family: "Noto Sans", sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--ink);
+      background: #ebe6dc;
+      border: 1px solid #d5cec2;
+      border-radius: 6px;
+      padding: 0.15rem 0.45rem;
+      cursor: default;
+      text-align: left;
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.25rem;
+      flex-wrap: wrap;
+    }
+    button.rel.linked {
+      cursor: pointer;
+      color: var(--accent);
+      border-color: #b7cfc2;
+      background: #e4efe8;
+    }
+    button.rel.linked:hover { border-color: var(--accent); }
+    button.rel .add { font-weight: 400; }
+
+    .pager {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      padding: 1.1rem 0 0.5rem;
+    }
+    .pager[hidden] { display: none !important; }
+    .pager .pager-meta {
+      font-size: 0.85rem;
+      color: var(--faint);
+      font-variant-numeric: tabular-nums;
+    }
+    .pager button {
+      appearance: none;
+      font: inherit;
+      font-weight: 650;
+      font-size: 0.9rem;
+      color: var(--accent);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 0.55rem 1.1rem;
+      cursor: pointer;
+    }
+    .pager button:hover {
+      border-color: var(--accent);
+      background: #eef5f0;
+    }
+
+    .empty, .err { padding: 1.5rem 0; color: var(--mute); }
+    .err { color: #8b3a3a; }
+    .err code {
+      background: var(--chip);
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+    }
+
+
+    /* FR · EN glosses — small plain text, middle dot, no pills */
+    .gl {
+      display: inline;
+      font-size: 0.68rem;
+      font-weight: 400;
+      line-height: 1.3;
+      color: var(--mute);
+    }
+    .gl-fr, .gl-en {
+      display: inline;
+      font-size: inherit;
+      font-weight: inherit;
+      line-height: inherit;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: none;
+      color: inherit;
+    }
+    .gl-fr { font-style: normal; }
+    .gl-en { font-style: italic; }
+    .gl-fr + .gl-en::before {
+      content: " · ";
+      font-style: normal;
+      opacity: 0.75;
+    }
+
+    details.info-card > summary {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.4rem 0.75rem;
+    }
+    details.info-card > summary::-webkit-details-marker { display: none; }
+    details.info-card > summary .chev {
+      color: var(--faint);
+      font-size: 0.75rem;
+      margin-right: 0.15rem;
+    }
+    details.info-card[open] > summary .chev { transform: rotate(90deg); display: inline-block; }
+    details.info-card .ic-body {
+      margin-top: 0.65rem;
+      border-top: 1px solid #eee9e0;
+      padding-top: 0.55rem;
+    }
+
+    /* Info — tags & values */
+    .note {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 0.7rem 0.9rem;
+      margin: 0 0 1rem;
+      color: var(--mute);
+      font-size: 0.88rem;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      padding: 0.1rem 0.35rem;
+      border-radius: 999px;
+      background: var(--chip);
+      color: var(--mute);
+      border: 1px solid var(--line);
+    }
+    .badge.mapped, .badge.confirmed {
+      background: #e6efe9;
+      color: #1f4d38;
+      border-color: #c5d9cc;
+    }
+    .badge.unmapped, .badge.assumed {
+      background: #f3ebe0;
+      color: #6b4e2e;
+      border-color: #e0d0bc;
+    }
+    .badge.french_meta, .badge.french_value, .badge.technical {
+      background: #e8eef5;
+      color: #2f4a66;
+      border-color: #c5d3e3;
+    }
+    .badge.observed {
+      background: var(--chip);
+      color: var(--mute);
+    }
+
+    .info-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin: 0 0 0.85rem;
+    }
+    .info-filters button {
+      appearance: none;
+      font: inherit;
+      font-size: 0.78rem;
+      font-weight: 650;
+      color: var(--mute);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.28rem 0.7rem;
+      cursor: pointer;
+    }
+    .info-filters button.active {
+      color: #fff;
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    h2.sec {
+      font-family: "Noto Serif", Georgia, serif;
+      font-size: 1.28rem;
+      font-weight: 600;
+      margin: 1.35rem 0 0.25rem;
+    }
+    .sec-sub {
+      margin: 0 0 0.75rem;
+      color: var(--faint);
+      font-size: 0.85rem;
+    }
+
+    .kpi-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin: 0 0 0.85rem;
+    }
+    @media (max-width: 720px) {
+      .kpi-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    .kpi {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 0.55rem 0.7rem;
+    }
+    .kpi .k {
+      font-size: 0.68rem;
+      color: var(--faint);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-weight: 700;
+    }
+    .kpi .v {
+      font-size: 1.3rem;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+      margin-top: 0.1rem;
+    }
+
+    .info-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+    .info-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 0.85rem 0.95rem 0.9rem;
+    }
+    .info-card[hidden] { display: none !important; }
+    .info-card .ic-top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.4rem 0.75rem;
+    }
+    .info-card .ic-id {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.3rem 0.45rem;
+    }
+    .info-card .ic-orig {
+      font-weight: 700;
+      font-size: 1.02rem;
+    }
+    .info-card .ic-map {
+      font-size: 0.95rem;
+      font-weight: 650;
+      color: var(--ink);
+    }
+    .info-card .ic-fr {
+      font-size: 0.82rem;
+      font-style: italic;
+      color: var(--mute);
+    }
+    .info-card .ic-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem 0.75rem;
+      font-size: 0.78rem;
+      color: var(--mute);
+      font-variant-numeric: tabular-nums;
+    }
+    .info-card .ic-stats strong { color: var(--ink); }
+    .info-card .ic-reason {
+      margin: 0.45rem 0 0;
+      font-size: 0.8rem;
+      color: var(--mute);
+      line-height: 1.45;
+      padding-left: 0.65rem;
+      border-left: 2px solid #e0d9cd;
+    }
+    .info-card .ic-where {
+      margin: 0.3rem 0 0;
+      font-size: 0.72rem;
+      color: var(--faint);
+    }
+    .info-card .ic-meta {
+      margin: 0.4rem 0 0;
+      width: 100%;
+      flex-basis: 100%;
+    }
+    .info-card .ic-desc {
+      margin: 0;
+      font-size: 0.82rem;
+      color: var(--ink);
+      line-height: 1.4;
+    }
+    .info-card .ic-desc .lab,
+    .info-card .ic-where .lab {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-right: 0.35rem;
+    }
+    .tag-found {
+      display: block;
+      width: 100%;
+      flex-basis: 100%;
+      font-size: 0.62rem;
+      font-weight: 400;
+      color: var(--faint);
+      line-height: 1.25;
+      margin-top: 0.05rem;
+    }
+    .ic-val .tag-found {
+      margin-top: 0.1rem;
+      margin-left: 0.05rem;
+    }
+
+    .ic-values {
+      margin-top: 0.65rem;
+      border-top: 1px solid #eee9e0;
+      padding-top: 0.5rem;
+    }
+    .ic-values h4 {
+      margin: 0 0 0.4rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .ic-val {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(4.5rem, 8rem) auto auto;
+      gap: 0.15rem 0.55rem;
+      align-items: center;
+      margin: 0.45rem 0;
+      font-size: 0.8rem;
+      padding-bottom: 0.35rem;
+      border-bottom: 1px solid #f0ebe3;
+    }
+    .ic-val:last-child { border-bottom: 0; }
+    @media (max-width: 640px) {
+      .ic-val {
+        grid-template-columns: 1fr auto auto;
+      }
+      .ic-val .track { display: none; }
+    }
+    .ic-val .vl-wrap {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.08rem;
+    }
+    .ic-val .vl {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.15rem 0.4rem;
+      min-width: 0;
+    }
+    .ic-val .vl-long {
+      font-size: 0.78rem;
+      color: var(--mute);
+      font-weight: 500;
+    }
+    .ic-val .tag-found {
+      margin: 0;
+      padding-left: 0.05rem;
+    }
+    .info-card .ic-head-line {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.25rem 0.45rem;
+      min-width: 0;
+    }
+    .info-card .ic-desc-plain {
+      margin: 0.35rem 0 0;
+      width: 100%;
+      flex-basis: 100%;
+      font-size: 0.84rem;
+      line-height: 1.45;
+      color: var(--mute);
+    }
+    .ic-val .track {
+      height: 0.42rem;
+      background: var(--bar-track);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .ic-val .fill {
+      height: 100%;
+      background: var(--bar);
+      border-radius: 999px;
+      min-width: 2px;
+    }
+    .ic-val .n, .ic-val .pct {
+      font-variant-numeric: tabular-nums;
+      color: var(--mute);
+      text-align: right;
+    }
+    .ic-val .pct { color: var(--faint); font-size: 0.72rem; min-width: 2.6rem; }
+    .ic-val .n { min-width: 2.6rem; }
+    .ic-note {
+      font-size: 0.75rem;
+      color: var(--faint);
+      margin: 0.15rem 0 0.35rem;
+    }
+
+    .val-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.65rem;
+    }
+    @media (max-width: 860px) {
+      .val-grid { grid-template-columns: 1fr; }
+    }
+
+    details.about {
+      margin-top: 1.5rem;
+      border-top: 1px solid var(--line);
+      padding-top: 0.5rem;
+    }
+    details.about summary {
+      cursor: pointer;
+      font-weight: 650;
+      color: var(--mute);
+      font-size: 0.9rem;
+      list-style: none;
+    }
+    details.about summary::-webkit-details-marker { display: none; }
+    details.about .about-body {
+      padding: 0.65rem 0 0;
+      color: var(--mute);
+      font-size: 0.85rem;
+    }
+    details.about ul { padding-left: 1.1rem; margin: 0.4rem 0; }
+
+    footer {
+      margin-top: 2.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      color: var(--faint);
+      font-size: 0.78rem;
+      line-height: 1.5;
+      max-width: 52rem;
+    }
+    footer .foot-line { margin: 0 0 0.35rem; }
+    footer .foot-cite { color: var(--mute); font-style: italic; }
+    footer a { color: inherit; }
+
+    /* OntoLex mapping */
+    .ox-intro {
+      margin: 0 0 1.1rem;
+      color: var(--mute);
+      font-size: 0.95rem;
+      max-width: 42rem;
+    }
+    .ox-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 0 0 1.5rem;
+    }
+    @media (max-width: 860px) {
+      .ox-grid { grid-template-columns: 1fr; }
+    }
+    .ox-panel {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 0.9rem 1rem 1.05rem;
+    }
+    .ox-panel h3 {
+      font-family: "Noto Serif", Georgia, serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin: 0 0 0.2rem;
+    }
+    .ox-panel .ox-cap {
+      margin: 0 0 0.85rem;
+      color: var(--faint);
+      font-size: 0.8rem;
+    }
+    .ox-tree {
+      font-size: 0.82rem;
+      line-height: 1.35;
+    }
+    .ox-node {
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      padding: 0.45rem 0.55rem;
+      margin: 0.35rem 0 0;
+      background: #faf8f3;
+    }
+    /* Matching tones: same data-ox-key → same colors on DiLAF and OntoLex */
+    .ox-node[data-ox-key="dilaf"],
+    .ox-node[data-ox-key="albab"],
+    .ox-node.root {
+      background: #e6efe9;
+      border-color: #c5d9cc;
+    }
+    .ox-node[data-ox-key="tezugest"],
+    .ox-node[data-ox-key="iget"],
+    .ox-node[data-ox-key="tasteq"],
+    .ox-node[data-ox-key="temust"],
+    .ox-node[data-ox-key="tazezlit"],
+    .ox-node[data-ox-key="esefses"] {
+      background: #eef3f8;
+      border-color: #c8d6e6;
+    }
+    .ox-node[data-ox-key="elfighsat"],
+    .ox-node[data-ox-key="almagna"],
+    .ox-node[data-ox-key="tefaransist"],
+    .ox-node.sense {
+      background: #f3efe8;
+      border-color: #e0d5c4;
+    }
+    .ox-node[data-ox-key="elmisal"],
+    .ox-node[data-ox-key="anammelu"],
+    .ox-node[data-ox-key="anemmezrey"],
+    .ox-node[data-ox-key="akku"],
+    .ox-node[data-ox-key="variante_cat"] {
+      background: #f0ebe3;
+      border-color: #d8d2c6;
+    }
+    .ox-node.onto .ox-tag { color: #2f4a66; }
+    .ox-node[data-ox-key="dilaf"] .ox-tag,
+    .ox-node[data-ox-key="albab"] .ox-tag,
+    .ox-node.root .ox-tag { color: #1f4d38; }
+    .ox-node[data-ox-key="elfighsat"] .ox-tag,
+    .ox-node[data-ox-key="almagna"] .ox-tag,
+    .ox-node[data-ox-key="tefaransist"] .ox-tag,
+    .ox-node.sense .ox-tag { color: #6b4e2e; }
+    .ox-kids {
+      margin-left: 0.65rem;
+      padding-left: 0.55rem;
+      border-left: 2px solid var(--line);
+    }
+    .ox-tag {
+      font-family: "Noto Serif", Georgia, serif;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    /* Cross-highlight DiLAF ↔ OntoLex (both sides) */
+    .ox-node[data-ox-key] {
+      cursor: pointer;
+      transition: box-shadow 0.12s ease, border-color 0.12s ease, background 0.12s ease, outline 0.12s ease;
+    }
+    .ox-node[data-ox-key]:hover,
+    .ox-node.ox-hot {
+      border-color: var(--accent) !important;
+      box-shadow: 0 0 0 2px rgba(42, 74, 62, 0.28);
+      outline: 2px solid rgba(42, 74, 62, 0.35);
+      outline-offset: 1px;
+      background: #dceee6 !important;
+      z-index: 2;
+      position: relative;
+    }
+    .ox-role {
+      color: var(--mute);
+      font-size: 0.78rem;
+    }
+    .ox-role::before { content: " · "; color: var(--faint); }
+    .ox-ex {
+      display: block;
+      margin-top: 0.15rem;
+      color: var(--faint);
+      font-size: 0.72rem;
+      font-style: italic;
+    }
+    .ox-opt {
+      opacity: 0.72;
+      font-size: 0.78rem;
+    }
+    .ox-map {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .ox-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 1.4rem minmax(0, 1.15fr);
+      gap: 0.35rem;
+      align-items: center;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 0.45rem 0.6rem;
+      font-size: 0.82rem;
+    }
+    @media (max-width: 640px) {
+      .ox-row {
+        grid-template-columns: 1fr;
+        gap: 0.15rem;
+      }
+      .ox-arrow { display: none; }
+    }
+    .ox-from .code {
+      font-family: "Noto Serif", Georgia, serif;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    .ox-to .code {
+      font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #2f4a66;
+    }
+    .ox-arrow {
+      text-align: center;
+      color: var(--faint);
+      font-weight: 700;
+    }
+    .ox-hint {
+      display: block;
+      color: var(--faint);
+      font-size: 0.72rem;
+      margin-top: 0.08rem;
+    }
+    .ox-gaps {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.35rem;
+    }
+    @media (max-width: 720px) {
+      .ox-gaps { grid-template-columns: 1fr; }
+    }
+    .ox-gap {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-left: 3px solid #b8894a;
+      border-radius: 8px;
+      padding: 0.55rem 0.7rem;
+      font-size: 0.82rem;
+    }
+    .ox-gap strong {
+      display: block;
+      font-size: 0.78rem;
+      margin-bottom: 0.2rem;
+      color: #6b4e2e;
+    }
+    .ox-gap p { margin: 0; color: var(--mute); font-size: 0.78rem; }
+
+    .ox-exhead {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.35rem 0.75rem;
+      margin: 0 0 0.85rem;
+    }
+    .ox-exhead .lemma {
+      font-family: "Noto Serif", Georgia, serif;
+      font-size: 1.45rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+    .ox-exhead .meta {
+      color: var(--mute);
+      font-size: 0.85rem;
+    }
+    .ox-val {
+      display: block;
+      margin-top: 0.12rem;
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-style: normal;
+      word-break: break-word;
+      white-space: pre-wrap;
+      line-height: 1.45;
+    }
+    .ox-patterns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin: 0 0 0.85rem;
+    }
+    .ox-patterns span {
+      font-size: 0.72rem;
+      font-weight: 650;
+      color: var(--mute);
+      background: var(--chip);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.18rem 0.55rem;
+    }
+    .ox-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem 1.1rem;
+      margin: 0.55rem 0 0;
+      font-size: 0.75rem;
+      color: var(--mute);
+    }
+    .ox-legend span::before {
+      content: "";
+      display: inline-block;
+      width: 0.7rem;
+      height: 0.7rem;
+      border-radius: 3px;
+      margin-right: 0.35rem;
+      vertical-align: -0.1rem;
+      border: 1px solid var(--line);
+    }
+    .ox-legend .lg-entry::before { background: #e6efe9; border-color: #c5d9cc; }
+    .ox-legend .lg-form::before { background: #eef3f8; border-color: #c8d6e6; }
+    .ox-legend .lg-sense::before { background: #f3efe8; border-color: #e0d5c4; }
+    .ox-legend .lg-rel::before { background: #f0ebe3; border-color: #d8d2c6; }
+    .ox-toggle {
+      display: flex;
+      gap: 0.35rem;
+      margin: 0 0 0.75rem;
+      flex-wrap: wrap;
+    }
+    .ox-toggle button {
+      appearance: none;
+      font: inherit;
+      font-size: 0.78rem;
+      font-weight: 650;
+      color: var(--mute);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.28rem 0.75rem;
+      cursor: pointer;
+    }
+    .ox-toggle button.active {
+      color: #fff;
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+    .ox-view[hidden] { display: none !important; }
+
+    /* OntoLex LexView — VocBench LexicographerView pattern */
+    .ox-lexview {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      font-size: 0.88rem;
+    }
+    .ox-lv-block {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--paper);
+      overflow: hidden;
+    }
+    .ox-lv-block[data-ox-key] { cursor: pointer; }
+    .ox-lv-block.ox-hot,
+    .ox-lv-row.ox-hot {
+      outline: 2px solid var(--accent);
+      outline-offset: 1px;
+      background: #dceee6;
+    }
+    .ox-lv-hd {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.35rem 0.75rem;
+      padding: 0.7rem 0.9rem;
+      border-bottom: 1px solid var(--line);
+      background: #e6efe9;
+    }
+    .ox-lv-hd .ox-lv-uri {
+      font-family: ui-monospace, Consolas, monospace;
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: #1f4d38;
+    }
+    .ox-lv-hd .ox-lv-class {
+      font-size: 0.75rem;
+      font-style: italic;
+      color: var(--mute);
+    }
+    .ox-lv-hd .ox-lv-lemma {
+      font-family: "Noto Serif", Georgia, serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      width: 100%;
+      margin-top: 0.15rem;
+      color: var(--ink);
+    }
+    .ox-lv-props {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      padding: 0.55rem 0.9rem 0.7rem;
+      background: #eef6f1;
+      border-bottom: 1px solid var(--line);
+    }
+    .ox-lv-chip {
+      font-size: 0.75rem;
+      font-weight: 650;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      border: 1px solid #c5d9cc;
+      background: #fff;
+      color: #1f4d38;
+    }
+    .ox-lv-sec-title {
+      margin: 0;
+      padding: 0.45rem 0.9rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--faint);
+      background: #f3f1ec;
+      border-bottom: 1px solid var(--line);
+    }
+    .ox-lv-rows { display: flex; flex-direction: column; }
+    .ox-lv-row {
+      display: grid;
+      grid-template-columns: 9.5rem minmax(0, 1fr);
+      gap: 0.65rem;
+      padding: 0.55rem 0.9rem;
+      border-bottom: 1px solid #ece8e0;
+      align-items: start;
+    }
+    .ox-lv-row:last-child { border-bottom: 0; }
+    .ox-lv-row[data-ox-key] { cursor: pointer; }
+    .ox-lv-pred {
+      font-family: ui-monospace, Consolas, monospace;
+      font-size: 0.72rem;
+      font-weight: 650;
+      color: #2f4a66;
+      word-break: break-word;
+    }
+    .ox-lv-val {
+      color: var(--ink);
+      line-height: 1.45;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .ox-lv-val .ox-lv-note {
+      display: block;
+      margin-top: 0.15rem;
+      font-size: 0.75rem;
+      color: var(--faint);
+    }
+    .ox-lv-sense {
+      border: 1px solid #e0d5c4;
+      border-radius: 10px;
+      background: #faf6f0;
+      overflow: hidden;
+    }
+    .ox-lv-sense .ox-lv-hd { background: #f3efe8; }
+    .ox-lv-sense .ox-lv-hd .ox-lv-uri { color: #6b4e2e; }
+    .ox-lv-relgrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+      gap: 0.45rem;
+      padding: 0.65rem 0.9rem 0.85rem;
+    }
+    .ox-lv-rel {
+      border: 1px solid #d8d2c6;
+      border-radius: 8px;
+      background: #f0ebe3;
+      padding: 0.45rem 0.55rem;
+      font-size: 0.8rem;
+    }
+    .ox-lv-rel .k {
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: #6b4e2e;
+      margin-bottom: 0.15rem;
+    }
+    .ox-lv-rel .v {
+      font-family: "Noto Serif", Georgia, serif;
+      font-weight: 600;
+    }
+    .ox-lv-rel .r {
+      font-family: ui-monospace, Consolas, monospace;
+      font-size: 0.7rem;
+      color: var(--faint);
+      margin-top: 0.15rem;
+    }
+    .ox-lv-note-bar {
+      margin: 0;
+      padding: 0.55rem 0.75rem;
+      font-size: 0.78rem;
+      color: var(--mute);
+      background: #f7fafb;
+      border: 1px dashed var(--line);
+      border-radius: 8px;
+    }
+
+    /* OntoLex Graph styles: injected by ontolex_graph.js (W3C lexicog blue/orange bands) */
+
+
+    .ox-ex-hit {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+      background: #e8f4f2 !important;
+      scroll-margin: 1.25rem;
+    }
+
+    /* Resizable Original | OntoLex split */
+    .ox-ex-layout {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      min-height: 20rem;
+    }
+    .ox-ex-pane {
+      min-width: 12rem;
+      overflow: auto;
+    }
+    .ox-ex-pane.ox-ex-left {
+      flex: 0 0 36%;
+      max-width: 70%;
+    }
+    .ox-ex-pane.ox-ex-right {
+      flex: 1 1 auto;
+      min-width: 18rem;
+    }
+    .ox-ex-pane .ox-lg-viewport {
+      min-width: 0;
+    }
+    .ox-split-handle {
+      flex: 0 0 8px;
+      margin: 0 0.15rem;
+      border-radius: 999px;
+      background: var(--line);
+      cursor: col-resize;
+      position: relative;
+      align-self: stretch;
+      touch-action: none;
+    }
+    .ox-split-handle::after {
+      content: "";
+      position: absolute;
+      inset: -4px -6px;
+    }
+    .ox-split-handle:hover,
+    .ox-split-handle.is-dragging {
+      background: var(--accent);
+    }
+    .ox-ex-pane     .ox-panel {
+      margin: 0;
+      height: 100%;
+    }
+    .ox-panel-hd {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.45rem 0.75rem;
+      margin-bottom: 0.35rem;
+    }
+    .ox-panel-hd h3 {
+      margin: 0;
+    }
+    .ox-tpl-grid .ox-panel {
+      min-height: 18rem;
+    }
+    .ox-tba {
+      min-height: 14rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      padding: 1.5rem 1rem;
+      border: 1px dashed #c5d0c8;
+      border-radius: 10px;
+      background: #f7faf7;
+      color: var(--mute);
+      text-align: center;
+    }
+    .ox-tba strong {
+      font-family: "Noto Serif", Georgia, serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .ox-prelim {
+      margin: 0 0 1rem;
+      padding: 0.65rem 0.85rem;
+      border-left: 3px solid #b8860b;
+      background: #fffbeb;
+      color: #5c4a1f;
+      font-size: 0.86rem;
+      line-height: 1.45;
+      border-radius: 0 8px 8px 0;
+    }
+    .ox-diagram {
+      display: block;
+      width: 100%;
+      max-width: 920px;
+      margin: 0 auto 1.25rem;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #0f1720;
+    }
+    .ox-map-table tr.ox-private td {
+      background: #fff1f0;
+    }
+    .ox-map-table .ox-priv-tag {
+      display: inline-block;
+      margin-left: 0.35rem;
+      padding: 0.05rem 0.35rem;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: #8b1a1a;
+      background: #ffd4d0;
+      border: 1px solid #e8a09a;
+      border-radius: 4px;
+      vertical-align: middle;
+    }
+    .ox-map-table code.ox-priv {
+      color: #8b1a1a;
+      font-weight: 600;
+    }
+    .ox-h3 {
+      font-family: "Noto Serif", Georgia, serif;
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 1.1rem 0 0.45rem;
+    }
+    @media (max-width: 860px) {
+      .ox-ex-layout { flex-direction: column; }
+      .ox-ex-pane.ox-ex-left { flex: 1 1 auto; max-width: none; width: auto !important; }
+      .ox-split-handle { display: none; }
+    }
+    .ox-map-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.8rem;
+      background: #fff;
+    }
+    .ox-map-table th,
+    .ox-map-table td {
+      border-bottom: 1px solid #e5ecf0;
+      padding: 0.55rem 0.6rem;
+      text-align: left;
+      vertical-align: top;
+    }
+    .ox-map-table th {
+      background: #eef3f6;
+      color: #35505a;
+      font-size: 0.72rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      position: sticky;
+      top: 0;
+    }
+    .ox-map-table code {
+      font-size: 0.78rem;
+    }
+    .ox-gaps .ox-gap q,
+    .ox-gaps .ox-q {
+      display: block;
+      font-weight: 650;
+      color: var(--ink);
+      margin-bottom: 0.25rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <div>
+        <h1 class="brand">Tamajaq <span>· français</span></h1>
+        <p class="lede">DiLAF dictionary v1.3 — browse words, or inspect tags and values with frequencies.</p>
+      </div>
+      <nav class="tabs">
+        <button type="button" class="active" data-tab="words">Words</button>
+        <button type="button" data-tab="info">Info</button>
+        <button type="button" data-tab="ontolex">OntoLex</button>
+      </nav>
+    </header>
+
+    <section id="words" class="panel active">
+      <div class="bar">
+        <input id="q" type="search" placeholder="Search Tamajaq or French…" autocomplete="off" />
+        <select id="pos"><option value="">All POS</option></select>
+      </div>
+      <div class="words-layout">
+        <div class="words-main">
+          <p class="count" id="meta">Loading…</p>
+          <div id="list" class="words-grid"></div>
+          <div id="pager" class="pager" hidden></div>
+        </div>
+        <nav id="alpha" class="alpha-rail" aria-label="Alphabetical index"></nav>
+      </div>
+    </section>
+
+    <section id="info" class="panel">
+      <p class="count" id="info-meta">Loading…</p>
+      <div id="info-body"></div>
+    </section>
+
+    <section id="ontolex" class="panel">
+      <div id="ontolex-body"></div>
+    </section>
+
+    <footer>
+      <p class="foot-line foot-cite">Reference: Mathieu Mangeot &amp; Chantal Enguehard (2013), «&nbsp;Des dictionnaires éditoriaux aux représentations XML standardisées&nbsp;», ch.&nbsp;8 in Nuria Gala &amp; Michael Zock (eds.), <cite>Ressources Lexicales&nbsp;: contenu, construction, utilisation, évaluation</cite>, Linguisticae Investigationes Supplementa, John Benjamins.</p>
+    </footer>
+  </div>
+
+  <script src="ontolex_graph.js"></script>
+  <script>
+    let entries = [];
+    let byId = {};
+    let posMap = {};
+    let tagGloss = {};
+    let valueGloss = {};
+    let filteredRows = [];
+    let shownCount = 0;
+    let activeLetter = ""; // "" = all
+    const PAGE = 60;
+    const ALPHA_ORDER = "aǎbcḍdeəfgɣhijklmnoqrsṣštṭuwxyzẓ".split("");
+    const list = document.getElementById("list");
+    const meta = document.getElementById("meta");
+    const pager = document.getElementById("pager");
+    const alphaNav = document.getElementById("alpha");
+    const q = document.getElementById("q");
+    const posSel = document.getElementById("pos");
+
+    /** Combine ǎ (a + U+030C) → precomposed ǎ so large serif text sits the caron on the letter */
+    function displayOrth(s) {
+      return String(s ?? "")
+        .normalize("NFC")
+        .replace(/\u0061\u030C/g, "\u01CE")
+        .replace(/\u0041\u030C/g, "\u01CD");
+    }
+
+    function lemmaKey(s) {
+      return displayOrth(s).toLowerCase();
+    }
+
+    function firstLetter(lemma) {
+      const s = lemmaKey(lemma);
+      return s ? s[0] : "?";
+    }
+
+    function letterSortIndex(ch) {
+      const i = ALPHA_ORDER.indexOf(ch);
+      return i >= 0 ? i : 1000 + ch.charCodeAt(0);
+    }
+
+    function normKey(s) {
+      return displayOrth(String(s ?? "").trim());
+    }
+
+    document.querySelectorAll("nav.tabs button").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll("nav.tabs button").forEach(b => b.classList.remove("active"));
+        document.querySelectorAll(".panel").forEach(p => p.classList.remove("active"));
+        btn.classList.add("active");
+        document.getElementById(btn.dataset.tab).classList.add("active");
+      });
+    });
+
+    function esc(t) {
+      return String(t ?? "").replace(/[&<>"']/g, c =>
+        ({ "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;" }[c]));
+    }
+    function n(x) {
+      return Number(x || 0).toLocaleString();
+    }
+    let tagEn = {};
+    let posEn = {};
+    let tagMeta = {}; // code -> { fr, en, source, note, status }
+
+    function glossFr(code) {
+      return posMap[code] || posMap[normKey(code)] || tagGloss[code] || tagGloss[normKey(code)] || "";
+    }
+    function glossEn(code) {
+      return posEn[code] || posEn[normKey(code)] || tagEn[code] || tagEn[normKey(code)] || "";
+    }
+    function glossMeta(code) {
+      return tagMeta[code] || tagMeta[normKey(code)] || null;
+    }
+    function glossSource(code) {
+      const m = glossMeta(code);
+      return (m && m.source) || "";
+    }
+
+    function mapFr(mappingOrItem) {
+      if (!mappingOrItem) return "";
+      const m = mappingOrItem.mapping || mappingOrItem;
+      return m["français"] || m.français || "";
+    }
+    function mapEn(mappingOrItem) {
+      if (!mappingOrItem) return "";
+      const m = mappingOrItem.mapping || mappingOrItem;
+      return m["anglais"] || m.anglais || m.en || "";
+    }
+    function mapSource(mappingOrItem) {
+      if (!mappingOrItem) return "";
+      const m = mappingOrItem.mapping || mappingOrItem;
+      return m.source || "";
+    }
+    function mapNote(mappingOrItem) {
+      if (!mappingOrItem) return "";
+      const m = mappingOrItem.mapping || mappingOrItem;
+      return m.note || "";
+    }
+    function mapStatus(mappingOrItem) {
+      if (!mappingOrItem) return "";
+      const m = mappingOrItem.mapping || mappingOrItem;
+      return m.status || "";
+    }
+
+    function foundInHtml(source) {
+      if (!source) return "";
+      return `<span class="tag-found">found in ${esc(source)}</span>`;
+    }
+
+    const TAG_DESC = {
+      albab: "One dictionary article: the full entry block for a headword (and its senses).",
+      təzugəst: "The headword / citation form shown as the entry’s main lemma.",
+      təmuṣt: "Grammatical category (part of speech) of the headword, using Tamajaq abbreviations.",
+      variante_cat: "Optional note that the same root also exists in another category (here: verbal noun of a verb).",
+      tazezlit: "Gender of the form when given explicitly (masculine / feminine).",
+      əsəfsəs: "Annexed-state prefix used with the noun (état d’annexion).",
+      igət: "Plural form(s) of the headword.",
+      tastəqY: "Dialect variant in tayart (northern).",
+      tastəqW: "Dialect variant in tawəlləmət (western).",
+      "əlfiɣšǎt": "Sense block: one meaning of the entry, with glosses, examples, and relations.",
+      almaɣna: "Definition written in Tamajaq.",
+      təfaransist: "French gloss / translation of the sense.",
+      "ǎkku": "Cross-reference (“see / see also”) to another entry.",
+      əlmisal: "Example sentence illustrating the sense.",
+      anammelu: "Synonym, often linked to another entry id.",
+      anəmmezrəy: "Antonym, often linked to another entry id.",
+      dilaf: "Root element of the DiLAF XML dictionary file.",
+      source: "Bibliographic and licence block for the resource.",
+      ref: "Bibliographic reference line.",
+      titre: "Title of the dictionary.",
+      auteurs: "Authors / project credit line.",
+      avertissement: "Reuse / licence warning text.",
+      license: "Licence element (CC BY-NC-SA), with optional URL.",
+      id: "Unique identifier for an entry or sense.",
+      sadderan: "Points to the target entry id of a cross-reference.",
+      src: "Source language code of the dictionary.",
+      trg: "Target language code (French).",
+      version: "Dictionary version string.",
+      datecreation: "Creation / publication date of this XML release.",
+      lien: "URL attached to the licence element.",
+    };
+
+    function tagDescription(name, fr, en, note) {
+      if (note) return note;
+      if (TAG_DESC[name]) return TAG_DESC[name];
+      if (fr && en) return `${en[0].toUpperCase() + en.slice(1)} (fr. ${fr}).`;
+      if (fr) return `French label: ${fr}.`;
+      if (en) return en[0].toUpperCase() + en.slice(1) + ".";
+      return "Present in the XML; no official glossary gloss yet.";
+    }
+
+    function rememberMeta(keys, fr, en, source, note, status) {
+      const meta = { fr: fr || "", en: en || "", source: source || "", note: note || "", status: status || "" };
+      (Array.isArray(keys) ? keys : [keys]).forEach(k => {
+        if (!k) return;
+        tagMeta[k] = meta;
+        tagMeta[normKey(k)] = meta;
+      });
+    }
+
+    function glPair(fr, en) {
+      let html = `<span class="gl">`;
+      if (fr) html += `<span class="gl-fr">${esc(fr)}</span>`;
+      if (en) html += `<span class="gl-en">${esc(en)}</span>`;
+      html += `</span>`;
+      return (fr || en) ? html : "";
+    }
+
+    function hydrateGlossMaps(doc) {
+      posMap = {};
+      tagGloss = {};
+      valueGloss = {};
+      tagEn = {};
+      posEn = {};
+      tagMeta = {};
+      if (!doc || typeof doc !== "object") return;
+      (doc.tags || []).forEach(t => {
+        const fr = mapFr(t);
+        const en = mapEn(t);
+        if (!t.tag) return;
+        if (fr) { tagGloss[t.tag] = fr; tagGloss[normKey(t.tag)] = fr; }
+        if (en) { tagEn[t.tag] = en; tagEn[normKey(t.tag)] = en; }
+        rememberMeta(t.tag, fr, en, mapSource(t), mapNote(t), mapStatus(t));
+      });
+      (doc.attributes || []).forEach(a => {
+        const fr = mapFr(a);
+        const en = mapEn(a);
+        if (!a.attribute) return;
+        if (fr) { tagGloss["@" + a.attribute] = fr; tagGloss[a.attribute] = fr; }
+        if (en) { tagEn["@" + a.attribute] = en; tagEn[a.attribute] = en; }
+        rememberMeta(["@" + a.attribute, a.attribute], fr, en, mapSource(a), mapNote(a), mapStatus(a));
+      });
+      const ingestVal = (v) => {
+        const key = v.value || v.code;
+        if (!key) return;
+        const fr = v["français"] || v.français || "";
+        const en = v["anglais"] || v.anglais || "";
+        if (fr) {
+          posMap[key] = fr; posMap[normKey(key)] = fr;
+          valueGloss[key] = fr; valueGloss[normKey(key)] = fr;
+        }
+        if (en) { posEn[key] = en; posEn[normKey(key)] = en; }
+        if (v.source) rememberMeta(key, fr, en, v.source, "", v.status || "");
+      };
+      (doc.values || []).forEach(ingestVal);
+      (doc.tags || []).forEach(t => (t.values || []).forEach(ingestVal));
+    }
+
+    function valueRowsHtml(values, mentions) {
+      if (!values || !values.length) return `<p class="ic-note">No discrete values listed.</p>`;
+      const total = mentions || values.reduce((s, x) => s + (x.count || 0), 0);
+      const max = Math.max(...values.map(v => v.count || 0), 1);
+      return values.map(v => {
+        const pct = total ? (100 * v.count) / total : 0;
+        const bar = Math.max(2, Math.round((100 * v.count) / max));
+        const shown = v.display || v.value;
+        const fr = v.français || glossFr(v.value) || glossFr(v.code) || "";
+        const en = v.anglais || glossEn(v.value) || glossEn(v.code) || "";
+        const long = v.formeLongue
+          ? `<span class="vl-long">${esc(displayOrth(v.formeLongue))}</span>`
+          : "";
+        return `<div class="ic-val">
+          <div class="vl-wrap">
+            <div class="vl">
+              ${valChip(esc(displayOrth(shown)))}
+              ${long}
+              ${glPair(fr, en)}
+            </div>
+          </div>
+          <div class="track"><div class="fill" style="width:${bar}%"></div></div>
+          <span class="n">${n(v.count)}</span>
+          <span class="pct">${pct.toFixed(1)}%</span>
+        </div>`;
+      }).join("");
+    }
+
+    function tagInfoCard(t) {
+      const name = t.tag || "";
+      const fr = mapFr(t);
+      const en = mapEn(t);
+      const source = mapSource(t);
+      const note = mapNote(t);
+      const desc = tagDescription(name, fr, en, note);
+      const nVal = (t.values && t.values.length) || 0;
+      const hasVals = nVal > 0 || t.valuesNote;
+      const open = nVal > 0 && nVal < 30 ? " open" : "";
+      const stats = [
+        `<span>mentions <strong>${n(t.mentions)}</strong></span>`,
+        t.entriesWith != null ? `<span>entries <strong>${n(t.entriesWith)}</strong></span>` : "",
+        t.uniqueValues != null ? `<span>values <strong>${n(t.uniqueValues)}</strong></span>` : "",
+      ].filter(Boolean).join("");
+
+      const body = hasVals ? `<div class="ic-body">
+          ${t.valuesNote ? `<p class="ic-note">${esc(t.valuesNote)}</p>` : ""}
+          ${valueRowsHtml(t.values, t.mentions)}
+        </div>` : "";
+
+      return `<details class="info-card" data-kind="tag"${open}>
+        <summary>
+          <div class="ic-id">
+            <span class="chev">▸</span>
+            <div class="ic-head-line">
+              <span class="tag-src ic-orig">${esc(displayOrth(name))}</span>
+              ${glPair(fr, en)}
+            </div>
+          </div>
+          <div class="ic-stats">${stats}</div>
+          <p class="ic-desc-plain">${esc(desc)}</p>
+          ${foundInHtml(source)}
+        </summary>
+        ${body}
+      </details>`;
+    }
+
+    function attrInfoCard(a) {
+      const name = a.attribute || "";
+      const fr = mapFr(a);
+      const en = mapEn(a);
+      const source = mapSource(a);
+      const note = mapNote(a);
+      const desc = tagDescription(name, fr, en, note);
+      const nVal = (a.values && a.values.length) || 0;
+      const hasVals = nVal > 0 || a.valuesNote;
+      const open = nVal > 0 && nVal < 30 ? " open" : "";
+      return `<details class="info-card" data-kind="tag"${open}>
+        <summary>
+          <div class="ic-id">
+            <span class="chev">▸</span>
+            <div class="ic-head-line">
+              <span class="tag-src ic-orig">@${esc(name)}</span>
+              ${glPair(fr, en)}
+            </div>
+          </div>
+          <div class="ic-stats">
+            <span>mentions <strong>${n(a.mentions)}</strong></span>
+            <span>values <strong>${n(a.uniqueValues)}</strong></span>
+          </div>
+          <p class="ic-desc-plain">${esc(desc)}</p>
+          ${foundInHtml(source)}
+        </summary>
+        <div class="ic-body">
+          ${a.valuesNote ? `<p class="ic-note">${esc(a.valuesNote)}</p>` : ""}
+          ${hasVals ? valueRowsHtml(a.values, a.mentions) : `<p class="ic-note">No value list.</p>`}
+        </div>
+      </details>`;
+    }
+
+    function valueInfoCard(v) {
+      const fr = v.français || "";
+      const en = v.anglais || "";
+      const long = v.formeLongue ? displayOrth(v.formeLongue) : "";
+      const desc = long
+        ? `Tamajaq long form « ${long} » — ${en || fr || "POS label"}.`
+        : (en || fr || "POS value label.");
+      return `<article class="info-card" data-kind="value">
+        <div class="ic-top">
+          <div class="ic-id">
+            <div class="ic-head-line">
+              ${valChip(esc(displayOrth(v.value)))}
+              ${long ? `<span class="vl-long">${esc(long)}</span>` : ""}
+              ${glPair(fr, en)}
+            </div>
+          </div>
+          <div class="ic-stats"><span>mentions <strong>${n(v.count || 0)}</strong></span></div>
+        </div>
+        <p class="ic-desc-plain">${esc(desc)}</p>
+      </article>`;
+    }
+
+    function addEn(text) {
+      if (!text) return "";
+      return `<span class="add">${esc(text)}</span>`;
+    }
+
+    function valChip(html, soft) {
+      return `<span class="val-chip${soft ? " soft" : ""}">${html}</span>`;
+    }
+
+    function fieldRow(xml, frOrLabel, valueHtml, hasValue, opts = {}) {
+      const fr = opts.fr != null ? opts.fr : (typeof frOrLabel === "string" ? glossFr(xml) : "");
+      const en = opts.en != null ? opts.en : glossEn(xml);
+      // If caller passed a plain label string as second arg and no gloss maps, show it as FR
+      const frShow = fr || (frOrLabel && !opts.fr && !glossFr(xml) ? frOrLabel : fr);
+      const body = hasValue
+        ? (opts.rawHtml ? valueHtml : valChip(valueHtml, opts.soft))
+        : `<span class="empty-dash">—</span>`;
+      return `<div class="row${hasValue ? "" : " empty-row"}">
+        <div class="rname">
+          <span class="tag-src">${esc(displayOrth(xml))}</span>
+          ${glPair(frShow, en)}
+        </div>
+        <div class="rval">${body}</div>
+      </div>`;
+    }
+
+    function valWithAdd(raw) {
+      return valChip(esc(displayOrth(raw))) + glPair(glossFr(raw), glossEn(raw));
+    }
+
+    function relButtons(items) {
+      return (items || []).map(x => {
+        const form = displayOrth(x.form);
+        const linked = x.ref && byId[x.ref];
+        const sadderan = x.ref
+          ? `<span class="add">@sadderan=${esc(x.ref)}</span>`
+          : "";
+        if (linked) {
+          return `<button type="button" class="rel linked" data-id="${esc(x.ref)}" title="@sadderan ${esc(x.ref)}">${esc(form)}${sadderan}</button>`;
+        }
+        return `<button type="button" class="rel" disabled>${esc(form)}${sadderan}</button>`;
+      }).join("");
+    }
+
+    function zoneBlock(ztag, zen, open, countLabel, bodyHtml) {
+      const fr = glossFr(ztag) || zen || "";
+      const en = glossEn(ztag) || "";
+      return `<details class="zone${open ? "" : " empty"}"${open ? " open" : ""}>
+        <summary>
+          <span class="chev">▸</span>
+          <span class="ztag">${esc(displayOrth(ztag))}</span>
+          ${glPair(fr, en)}
+          <span class="zcount">${esc(countLabel)}</span>
+        </summary>
+        <div class="zone-body">${bodyHtml}</div>
+      </details>`;
+    }
+
+    function wordCardHtml(e) {
+        const s = e.sense || {};
+        const posFr = glossFr(e.pos);
+        const posEnLabel = glossEn(e.pos);
+
+        // Header: WORD top-left, POS top-right, French under word
+        const head = `<div class="word-top">
+          <div class="word-left">
+            <div class="lemma-label">
+              <span class="tag-src">təzugəst</span>
+              ${glPair(glossFr("təzugəst") || "entrée", glossEn("təzugəst") || "headword")}
+            </div>
+            <h2 class="lemma">${esc(displayOrth(e.lemma))}</h2>
+            <div class="fra-line${s.glossFra ? "" : " empty"}">
+              <span class="tag-inline">
+                <span class="tag-src">təfaransist</span>
+                ${glPair(glossFr("təfaransist") || "français", glossEn("təfaransist") || "French")}
+              </span>
+              ${s.glossFra
+                ? `<span class="fra-val">${esc(s.glossFra)}</span>`
+                : `<span class="empty-dash">—</span>`}
+            </div>
+          </div>
+          <div class="pos-block">
+            <div class="pos-lab">
+              <span class="tag-src">təmuṣt</span>
+              ${glPair(glossFr("təmuṣt") || "catégorie grammaticale", glossEn("təmuṣt") || "part of speech")}
+            </div>
+            <div class="pos-val">
+              ${valChip(esc(displayOrth(e.pos || "—")))}
+              ${glPair(posFr, posEnLabel)}
+            </div>
+          </div>
+        </div>
+        <div class="ids-row">
+          <span class="id-item">
+            <span class="tag-src">albab</span>${glPair(glossFr("albab") || "article", glossEn("albab") || "entry")}
+            <span class="attr">@id=${esc(e.id)}</span>
+          </span>
+          ${s.id ? `<span class="id-item">
+            <span class="tag-src">${esc(displayOrth("əlfiɣšǎt"))}</span>${glPair(glossFr("əlfiɣšǎt") || "signification", glossEn("əlfiɣšǎt") || "sense")}
+            <span class="attr">@id=${esc(s.id)}</span>
+          </span>` : ""}
+        </div>`;
+
+        // FORM — all albab morphology / variant tags
+        const plurals = e.plurals || [];
+        const varsW = e.variantsW || [];
+        const formBits = [
+          { xml: "igət", en: glossFr("igət") || "pluriel", has: plurals.length > 0,
+            val: plurals.length ? esc(displayOrth(plurals.join(" · "))) : "", chip: true },
+          { xml: "əsəfsəs", en: glossFr("əsəfsəs") || "état d’annexion", has: !!e.morphNote,
+            val: e.morphNote ? valWithAdd(e.morphNote) : "", raw: true },
+          { xml: "tazezlit", en: glossFr("tazezlit") || "genre", has: !!e.gender,
+            val: e.gender ? valWithAdd(e.gender) : "", raw: true },
+          { xml: "variante_cat", en: "", has: !!e.posVariant,
+            val: e.posVariant ? esc(displayOrth(e.posVariant)) : "", chip: true },
+          { xml: "tastəqW", en: glossFr("tastəqW") || "variante tawəlləmət (ouest)", has: varsW.length > 0,
+            val: varsW.length ? esc(displayOrth(varsW.join(" · "))) : "", chip: true, soft: true },
+          { xml: "tastəqY", en: glossFr("tastəqY") || "variante tayart (Nord)", has: !!e.variantY,
+            val: e.variantY ? esc(displayOrth(e.variantY)) : "", chip: true, soft: true },
+        ];
+        const formFilled = formBits.filter(b => b.has).length;
+        const form = zoneBlock(
+          "albab",
+          "article",
+          formFilled > 0,
+          formFilled > 0 ? `${formFilled}/6` : "empty",
+          formBits.map(b => fieldRow(b.xml, b.en, b.val, b.has, { rawHtml: b.raw, soft: b.soft })).join("")
+        );
+
+        // SENSE — əlfiɣšǎt children (təfaransist already in header)
+        const examples = s.examples || [];
+        const syn = s.synonyms || [];
+        const see = s.seeAlso || [];
+        const ant = s.antonyms || [];
+        const senseBits = [
+          { xml: "almaɣna", en: glossFr("almaɣna") || "définition", has: !!s.definitionTmh,
+            val: s.definitionTmh ? esc(displayOrth(s.definitionTmh)) : "", soft: true },
+          { xml: "təfaransist", en: glossFr("təfaransist") || "français", has: !!s.glossFra,
+            val: s.glossFra ? esc(s.glossFra) : "", soft: true },
+          { xml: "əlmisal", en: glossFr("əlmisal") || "exemple", has: examples.length > 0,
+            val: examples.length
+              ? `<ul class="ex-list">${examples.map(ex => `<li>${esc(displayOrth(ex))}</li>`).join("")}</ul>`
+              : "", raw: true },
+          { xml: "anammelu", en: glossFr("anammelu") || "synonyme", has: syn.length > 0,
+            val: syn.length ? `<div class="rel-links">${relButtons(syn)}</div>` : "", raw: true },
+          { xml: "ǎkku", en: glossFr("ǎkku") || "voir", has: see.length > 0,
+            val: see.length ? `<div class="rel-links">${relButtons(see)}</div>` : "", raw: true },
+          { xml: "anəmmezrəy", en: glossFr("anəmmezrəy") || "antonyme", has: ant.length > 0,
+            val: ant.length ? `<div class="rel-links">${relButtons(ant)}</div>` : "", raw: true },
+        ];
+        const senseFilled = senseBits.filter(b => b.has).length;
+        const sense = zoneBlock(
+          "əlfiɣšǎt",
+          "signification",
+          senseFilled > 0,
+          senseFilled > 0 ? `${senseFilled}/6` : "empty",
+          senseBits.map(b => fieldRow(b.xml, b.en, b.val, b.has, { rawHtml: b.raw, soft: b.soft })).join("")
+        );
+
+        return `<article class="word" data-id="${esc(e.id)}" id="entry-${esc(e.id)}" data-letter="${esc(firstLetter(e.lemma))}">
+          ${head}
+          ${form}
+          ${sense}
+        </article>`;
+    }
+
+    function updatePager() {
+      if (!filteredRows.length || shownCount >= filteredRows.length) {
+        pager.hidden = true;
+        pager.innerHTML = "";
+        return;
+      }
+      pager.hidden = false;
+      pager.innerHTML = `
+        <span class="pager-meta">Showing ${n(shownCount)} of ${n(filteredRows.length)}</span>
+        <button type="button" id="load-more">Load more</button>`;
+      document.getElementById("load-more").onclick = () => {
+        const next = Math.min(shownCount + PAGE, filteredRows.length);
+        const chunk = filteredRows.slice(shownCount, next);
+        list.insertAdjacentHTML("beforeend", chunk.map(wordCardHtml).join(""));
+        shownCount = next;
+        updatePager();
+        updateMeta();
+      };
+    }
+
+    function updateMeta() {
+      const letterNote = activeLetter ? ` · “${activeLetter}”` : "";
+      meta.textContent = filteredRows.length
+        ? `${n(shownCount)} shown · ${n(filteredRows.length)} match${letterNote} · ${n(entries.length)} total`
+        : `0 matches${letterNote} · ${n(entries.length)} total`;
+    }
+
+    function renderWords(reset) {
+      if (reset) shownCount = 0;
+      if (!filteredRows.length) {
+        list.innerHTML = '<p class="empty">No matches.</p>';
+        pager.hidden = true;
+        updateMeta();
+        return;
+      }
+      shownCount = Math.min(PAGE, filteredRows.length);
+      list.innerHTML = filteredRows.slice(0, shownCount).map(wordCardHtml).join("");
+      updatePager();
+      updateMeta();
+    }
+
+    function buildAlphaRail() {
+      const counts = {};
+      entries.forEach(e => {
+        const L = firstLetter(e.lemma);
+        counts[L] = (counts[L] || 0) + 1;
+      });
+      const letters = Object.keys(counts).sort((a, b) => letterSortIndex(a) - letterSortIndex(b));
+      // Prefer known Tamajaq order, then any leftovers
+      const ordered = [
+        ...ALPHA_ORDER.filter(L => counts[L]),
+        ...letters.filter(L => !ALPHA_ORDER.includes(L)),
+      ];
+      alphaNav.innerHTML = `
+        <button type="button" class="alpha-all${activeLetter ? "" : " active"}" data-letter="" title="All letters">All</button>
+        ${ordered.map(L => `
+          <button type="button" data-letter="${esc(L)}" title="${esc(L)} · ${counts[L]}"
+            class="${activeLetter === L ? "active" : ""}">${esc(L)}</button>
+        `).join("")}`;
+    }
+
+    function setActiveLetter(letter) {
+      activeLetter = letter || "";
+      alphaNav.querySelectorAll("button").forEach(btn => {
+        btn.classList.toggle("active", (btn.dataset.letter || "") === activeLetter);
+      });
+    }
+
+    alphaNav.addEventListener("click", ev => {
+      const btn = ev.target.closest("button[data-letter]");
+      if (!btn || btn.disabled) return;
+      const letter = btn.dataset.letter || "";
+      q.value = "";
+      setActiveLetter(letter);
+      filter();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    function jumpToId(id) {
+      const target = byId[id];
+      if (!target) return;
+      posSel.value = "";
+      q.value = "";
+      setActiveLetter(firstLetter(target.lemma));
+      filter();
+      // ensure target is in the loaded slice
+      const idx = filteredRows.findIndex(e => e.id === id);
+      if (idx >= 0 && idx >= shownCount) {
+        shownCount = Math.min(filteredRows.length, Math.ceil((idx + 1) / PAGE) * PAGE);
+        list.innerHTML = filteredRows.slice(0, shownCount).map(wordCardHtml).join("");
+        updatePager();
+        updateMeta();
+      }
+      requestAnimationFrame(() => {
+        const el = document.getElementById(`entry-${id}`);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "center" });
+          el.style.outline = "2px solid var(--accent)";
+          setTimeout(() => { el.style.outline = ""; }, 1600);
+        }
+      });
+    }
+
+    list.addEventListener("click", ev => {
+      const btn = ev.target.closest("button.rel.linked");
+      if (!btn) return;
+      jumpToId(btn.dataset.id);
+    });
+
+    function filter() {
+      const needle = q.value.trim().toLowerCase();
+      const pos = posSel.value;
+      if (needle && activeLetter) setActiveLetter("");
+
+      filteredRows = entries.filter(e => {
+        if (pos && e.pos !== pos) return false;
+        if (activeLetter && firstLetter(e.lemma) !== activeLetter) return false;
+        if (!needle) return true;
+        const s = e.sense || {};
+        const relForms = [
+          ...(s.synonyms || []),
+          ...(s.antonyms || []),
+          ...(s.seeAlso || []),
+        ].map(x => x.form);
+        const blob = [
+          e.lemma, e.pos, e.id, e.morphNote, e.gender, e.posVariant, e.variantY,
+          ...(e.plurals || []), ...(e.variantsW || []),
+          s.glossFra, s.definitionTmh, ...(s.examples || []), ...relForms,
+        ].filter(Boolean).join(" ").toLowerCase();
+        return blob.includes(needle);
+      });
+
+      if (!needle) {
+        filteredRows.sort((a, b) => {
+          const la = firstLetter(a.lemma);
+          const lb = firstLetter(b.lemma);
+          const d = letterSortIndex(la) - letterSortIndex(lb);
+          if (d) return d;
+          return lemmaKey(a.lemma).localeCompare(lemmaKey(b.lemma), "en");
+        });
+      }
+      renderWords(true);
+    }
+
+    /** Three curated articles covering distinct DiLAF → OntoLex patterns (full text). */
+    const OX_FALLBACK_EXAMPLES = [
+      {
+        id: "aɣil1",
+        lemma: "aɣil",
+        pos: "sn. yy.",
+        morphNote: "ǎ",
+        plurals: ["iɣallan"],
+        sense: {
+          id: "aɣil1_1",
+          definitionTmh: "Emədig wa s yəwǎr əfus wa s yəsâslǎm awedən ; yofâ sər-əs.",
+          glossFra: "droite, côté droit",
+          examples: ["Musa aɣil as yəkâttǎb tira-net."],
+          synonyms: [{ form: "əɣil" }],
+          antonyms: [{ form: "zalgǎt", ref: "zalgat1" }],
+        },
+        patterns: ["əsəfsəs", "igət", "almaɣna", "təfaransist (list)", "əlmisal", "anammelu", "anəmmezrəy @sadderan"],
+        blurb: "Morphology + full bilingual sense + synonym and linked antonym.",
+      },
+      {
+        id: "ədəg1",
+        lemma: "ədəg",
+        pos: "nml.",
+        posVariant: "snml : edag.",
+        sense: {
+          id: "ədəg1_1",
+          definitionTmh: "Esəttənkəl n ǎrǎt yəsmadǎn dǎɣ edǎg iyyǎn.",
+          glossFra: "piquer",
+          examples: ["Lǎkatǎro yədǎg bǎrar."],
+        },
+        patterns: ["nml. verb", "variante_cat / snml", "almaɣna", "təfaransist", "əlmisal"],
+        blurb: "Category shift: second LexicalEntry (verbal noun edag) + vartrans — not otherForm.",
+      },
+      {
+        id: "adagom1",
+        lemma: "adagom",
+        pos: "sn. yy.",
+        plurals: ["idagomǎn", "ədgam"],
+        variantsW: ["ajwal"],
+        sense: {
+          id: "adagom1_1",
+          glossFra: "sauterelle",
+          seeAlso: [{ form: "afarcakom", ref: "afarcakom1" }],
+          synonyms: [{ form: "afarcakom", ref: "afarcakom1" }],
+        },
+        patterns: ["two igət", "tastəqW", "təfaransist only", "ǎkku @sadderan", "anammelu @sadderan"],
+        blurb: "Dialect otherForm, dual plurals, French-only sense, see-also and synonym both linked.",
+      },
+    ];
+
+    function enrichOxExample(base) {
+      const live = byId[base.id];
+      if (!live) return base;
+      return {
+        ...base,
+        ...live,
+        sense: { ...(base.sense || {}), ...(live.sense || {}) },
+        patterns: base.patterns,
+        blurb: base.blurb,
+      };
+    }
+
+    function oxPosLabel(code) {
+      const fr = glossFr(code);
+      const en = glossEn(code);
+      if (fr && en) return `${displayOrth(code)} · ${fr} · ${en}`;
+      if (fr) return `${displayOrth(code)} · ${fr}`;
+      return displayOrth(code || "—");
+    }
+
+    function oxRelList(items, kind) {
+      if (!items || !items.length) return "";
+      const role = kind === "anammelu" ? "synonym" : kind === "anəmmezrəy" ? "antonym" : "see also";
+      const key = kind === "anammelu" ? "anammelu" : kind === "anəmmezrəy" ? "anemmezrey" : "akku";
+      return items.map((it, i) => {
+        const form = displayOrth(it.form || it);
+        const ref = it.ref ? ` · @sadderan=${esc(it.ref)}` : "";
+        return `<div class="ox-node" data-ox-key="${key}" id="ox-src-${key}${i || ""}">
+          <span class="ox-tag">${kind}</span><span class="ox-role">${role}${ref}</span>
+          <span class="ox-val">${esc(form)}</span>
+        </div>`;
+      }).join("");
+    }
+
+    function oxOntoRelList(items, label) {
+      if (!items || !items.length) return "";
+      return items.map(it => {
+        const form = displayOrth(it.form || it);
+        const target = it.ref ? `:lex_${esc(it.ref)} (${esc(form)})` : `form ${esc(form)}`;
+        return `<div class="ox-node onto">
+          <span class="ox-tag">vartrans · ${esc(label)}</span>
+          <span class="ox-val">→ ${target}</span>
+        </div>`;
+      }).join("");
+    }
+
+    function isDialectPhrase(v) {
+      const s = String(v || "").trim();
+      return !s || s.includes(":") || s.split(/\s+/).length > 2;
+    }
+
+    function dilafNestedHtml(ex) {
+      const s = ex.sense || {};
+      const kids = [];
+      kids.push(`<div class="ox-node" data-ox-key="tezugest" id="ox-src-tezugest"><span class="ox-tag">təzugəst</span><span class="ox-role">headword</span><span class="ox-val">${esc(displayOrth(ex.lemma))}</span></div>`);
+      kids.push(`<div class="ox-node" data-ox-key="temust" id="ox-src-temust"><span class="ox-tag">təmuṣt</span><span class="ox-role">POS</span><span class="ox-val">${esc(oxPosLabel(ex.pos))}</span></div>`);
+      if (ex.gender) kids.push(`<div class="ox-node" data-ox-key="tazezlit" id="ox-src-tazezlit"><span class="ox-tag">tazezlit</span><span class="ox-role">gender</span><span class="ox-val">${esc(displayOrth(ex.gender))}</span></div>`);
+      if (ex.morphNote) kids.push(`<div class="ox-node" data-ox-key="esefses" id="ox-src-esefses"><span class="ox-tag">əsəfsəs</span><span class="ox-role">annexed state</span><span class="ox-val">${esc(displayOrth(ex.morphNote))}</span></div>`);
+      (ex.plurals || []).forEach((p, i) => kids.push(`<div class="ox-node" data-ox-key="iget" id="ox-src-iget${i || ""}"><span class="ox-tag">igət</span><span class="ox-role">plural</span><span class="ox-val">${esc(displayOrth(p))}</span></div>`));
+      (ex.variantsW || []).forEach((p, i) => kids.push(`<div class="ox-node" data-ox-key="tasteq" id="ox-src-tasteqW${i || ""}"><span class="ox-tag">tastəqW</span><span class="ox-role">variante tawəlləmət (ouest)</span><span class="ox-val">${esc(displayOrth(p))}</span></div>`));
+      if (ex.variantY) kids.push(`<div class="ox-node" data-ox-key="tasteq" id="ox-src-tasteqY"><span class="ox-tag">tastəqY</span><span class="ox-role">variante tayart (Nord)</span><span class="ox-val">${esc(displayOrth(ex.variantY))}</span></div>`);
+      if (ex.posVariant) kids.push(`<div class="ox-node" data-ox-key="variante_cat" id="ox-src-variante_cat"><span class="ox-tag">variante_cat</span><span class="ox-role">category variant</span><span class="ox-val">${esc(displayOrth(ex.posVariant))}</span></div>`);
+
+      const senseKids = [];
+      if (s.definitionTmh) senseKids.push(`<div class="ox-node" data-ox-key="almagna" id="ox-src-almagna"><span class="ox-tag">almaɣna</span><span class="ox-role">definition @tmh</span><span class="ox-val">${esc(displayOrth(s.definitionTmh))}</span></div>`);
+      if (s.glossFra) senseKids.push(`<div class="ox-node" data-ox-key="tefaransist" id="ox-src-tefaransist"><span class="ox-tag">təfaransist</span><span class="ox-role">French gloss</span><span class="ox-val">${esc(s.glossFra)}</span></div>`);
+      (s.examples || []).forEach((exs, i) => senseKids.push(`<div class="ox-node" data-ox-key="elmisal" id="ox-src-elmisal${i || ""}"><span class="ox-tag">əlmisal</span><span class="ox-role">example</span><span class="ox-val">${esc(displayOrth(exs))}</span></div>`));
+      senseKids.push(oxRelList(s.synonyms, "anammelu"));
+      senseKids.push(oxRelList(s.antonyms, "anəmmezrəy"));
+      senseKids.push(oxRelList(s.seeAlso, "ǎkku"));
+
+      kids.push(`<div class="ox-node sense" data-ox-key="elfighsat" id="ox-src-elfighsat">
+        <span class="ox-tag">əlfiɣšǎt</span><span class="ox-role">@id = ${esc(s.id || "")}</span>
+        <div class="ox-kids">${senseKids.join("")}</div>
+      </div>`);
+
+      return `<div class="ox-tree" aria-label="DiLAF nested ${esc(ex.id)}">
+        <div class="ox-node root" data-ox-key="albab" id="ox-src-albab">
+          <span class="ox-tag">albab</span><span class="ox-role">@id = ${esc(ex.id)}</span>
+          <div class="ox-kids">${kids.join("")}</div>
+        </div>
+      </div>`;
+    }
+
+    /** DiLAF article in LexView-style blocks (Original panel). */
+    function dilafLexViewHtml(ex) {
+      const s = ex.sense || {};
+      const rows = [];
+      rows.push(`<div class="ox-lv-row" data-ox-key="tezugest"><div class="ox-lv-pred">təzugəst</div><div class="ox-lv-val">${esc(displayOrth(ex.lemma))}</div></div>`);
+      rows.push(`<div class="ox-lv-row" data-ox-key="temust"><div class="ox-lv-pred">təmuṣt</div><div class="ox-lv-val">${esc(oxPosLabel(ex.pos))}</div></div>`);
+      if (ex.gender) rows.push(`<div class="ox-lv-row" data-ox-key="tazezlit"><div class="ox-lv-pred">tazezlit</div><div class="ox-lv-val">${esc(displayOrth(ex.gender))}</div></div>`);
+      if (ex.morphNote) rows.push(`<div class="ox-lv-row" data-ox-key="esefses"><div class="ox-lv-pred">əsəfsəs</div><div class="ox-lv-val">${esc(displayOrth(ex.morphNote))}</div></div>`);
+      (ex.plurals || []).forEach(p => rows.push(`<div class="ox-lv-row" data-ox-key="iget"><div class="ox-lv-pred">igət</div><div class="ox-lv-val">${esc(displayOrth(p))}</div></div>`));
+      (ex.variantsW || []).forEach(p => rows.push(`<div class="ox-lv-row" data-ox-key="tasteq"><div class="ox-lv-pred">tastəqW</div><div class="ox-lv-val">${esc(displayOrth(p))}${isDialectPhrase(p) ? ' <span class="ox-lv-note">phrase/note</span>' : ""}</div></div>`));
+      if (ex.variantY) rows.push(`<div class="ox-lv-row" data-ox-key="tasteq"><div class="ox-lv-pred">tastəqY</div><div class="ox-lv-val">${esc(displayOrth(ex.variantY))}</div></div>`);
+      if (ex.posVariant) rows.push(`<div class="ox-lv-row" data-ox-key="variante_cat"><div class="ox-lv-pred">variante_cat</div><div class="ox-lv-val">${esc(displayOrth(ex.posVariant))}</div></div>`);
+
+      const senseRows = [];
+      if (s.definitionTmh) senseRows.push(`<div class="ox-lv-row" data-ox-key="almagna"><div class="ox-lv-pred">almaɣna</div><div class="ox-lv-val">${esc(displayOrth(s.definitionTmh))}</div></div>`);
+      if (s.glossFra) senseRows.push(`<div class="ox-lv-row" data-ox-key="tefaransist"><div class="ox-lv-pred">təfaransist</div><div class="ox-lv-val">${esc(s.glossFra)}</div></div>`);
+      (s.examples || []).forEach(exs => senseRows.push(`<div class="ox-lv-row" data-ox-key="elmisal"><div class="ox-lv-pred">əlmisal</div><div class="ox-lv-val">${esc(displayOrth(exs))}</div></div>`));
+      (s.synonyms || []).forEach(it => senseRows.push(`<div class="ox-lv-row" data-ox-key="anammelu"><div class="ox-lv-pred">anammelu</div><div class="ox-lv-val">${esc(displayOrth(it.form || it))}${it.ref ? ` <span class="ox-lv-note">@sadderan=${esc(it.ref)}</span>` : ""}</div></div>`));
+      (s.antonyms || []).forEach(it => senseRows.push(`<div class="ox-lv-row" data-ox-key="anemmezrey"><div class="ox-lv-pred">anəmmezrəy</div><div class="ox-lv-val">${esc(displayOrth(it.form || it))}${it.ref ? ` <span class="ox-lv-note">@sadderan=${esc(it.ref)}</span>` : ""}</div></div>`));
+      (s.seeAlso || []).forEach(it => senseRows.push(`<div class="ox-lv-row" data-ox-key="akku"><div class="ox-lv-pred">ăkku</div><div class="ox-lv-val">${esc(displayOrth(it.form || it))}${it.ref ? ` <span class="ox-lv-note">@sadderan=${esc(it.ref)}</span>` : ""}</div></div>`));
+
+      return `<div class="ox-lexview">
+        <p class="ox-lv-note-bar">Original DiLAF article (LexView layout)</p>
+        <div class="ox-lv-block" data-ox-key="albab">
+          <div class="ox-lv-hd">
+            <span class="ox-lv-uri">albab @id=${esc(ex.id)}</span>
+            <span class="ox-lv-class">dictionary article</span>
+            <span class="ox-lv-lemma">${esc(displayOrth(ex.lemma))}</span>
+          </div>
+          <div class="ox-lv-rows">${rows.join("")}</div>
+        </div>
+        <div class="ox-lv-sense" data-ox-key="elfighsat">
+          <div class="ox-lv-hd">
+            <span class="ox-lv-uri">əlfiɣšǎt @id=${esc(s.id || "")}</span>
+            <span class="ox-lv-class">sense</span>
+          </div>
+          <div class="ox-lv-rows">${senseRows.join("") || `<div class="ox-lv-row"><div class="ox-lv-val">—</div></div>`}</div>
+        </div>
+      </div>`;
+    }
+
+    /** Template DiLAF nested containment (Original panel — nested only). */
+    function dilafTemplateNestedHtml() {
+      return `<div class="ox-tree" aria-label="DiLAF nested template">
+        <div class="ox-node root" data-ox-key="dilaf">
+          <span class="ox-tag">dilaf</span><span class="ox-role">dictionary · src=tmh · trg=fra</span>
+          <div class="ox-kids">
+            <div class="ox-node" data-ox-key="albab">
+              <span class="ox-tag">albab</span><span class="ox-role">article · @id</span>
+              <div class="ox-kids">
+                <div class="ox-node" data-ox-key="tezugest"><span class="ox-tag">təzugəst</span><span class="ox-role">headword</span></div>
+                <div class="ox-node" data-ox-key="temust"><span class="ox-tag">təmuṣt</span><span class="ox-role">POS</span></div>
+                <div class="ox-node ox-opt" data-ox-key="tazezlit"><span class="ox-tag">tazezlit</span><span class="ox-role">gender</span></div>
+                <div class="ox-node ox-opt" data-ox-key="esefses"><span class="ox-tag">əsəfsəs</span><span class="ox-role">annexed state</span></div>
+                <div class="ox-node ox-opt" data-ox-key="iget"><span class="ox-tag">igət</span><span class="ox-role">plural</span></div>
+                <div class="ox-node ox-opt" data-ox-key="tasteq"><span class="ox-tag">tastəqW / tastəqY</span><span class="ox-role">dialects</span></div>
+                <div class="ox-node ox-opt" data-ox-key="variante_cat"><span class="ox-tag">variante_cat</span><span class="ox-role">category variant</span></div>
+                <div class="ox-node sense" data-ox-key="elfighsat">
+                  <span class="ox-tag">əlfiɣšǎt</span><span class="ox-role">sense · @id</span>
+                  <div class="ox-kids">
+                    <div class="ox-node" data-ox-key="almagna"><span class="ox-tag">almaɣna</span><span class="ox-role">definition @tmh</span></div>
+                    <div class="ox-node" data-ox-key="tefaransist"><span class="ox-tag">təfaransist</span><span class="ox-role">French gloss</span></div>
+                    <div class="ox-node ox-opt" data-ox-key="elmisal"><span class="ox-tag">əlmisal</span><span class="ox-role">example</span></div>
+                    <div class="ox-node ox-opt" data-ox-key="anammelu"><span class="ox-tag">anammelu</span><span class="ox-role">synonym</span></div>
+                    <div class="ox-node ox-opt" data-ox-key="anemmezrey"><span class="ox-tag">anəmmezrəy</span><span class="ox-role">antonym</span></div>
+                    <div class="ox-node ox-opt" data-ox-key="akku"><span class="ox-tag">ăkku</span><span class="ox-role">see also</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>`;
+    }
+
+    /** OntoLex LexView — standard mapping (skos / lexinfo / vartrans / lexicon-only). */
+    function ontoLexViewHtml(ex) {
+      const s = ex.sense || {};
+      const isVerb = String(ex.pos || "").startsWith("nml");
+      const posOnto = isVerb ? "Verb" : "Noun";
+      const mid = esc(ex.id);
+      const lemma = displayOrth(ex.lemma);
+
+      const chips = [];
+      chips.push(`<span class="ox-lv-chip" data-ox-key="temust">lexinfo:partOfSpeech · ${esc(posOnto)}</span>`);
+      chips.push(`<span class="ox-lv-chip" data-ox-key="temust">skos:notation · ${esc(displayOrth(ex.pos || ""))}</span>`);
+      if (!isVerb) chips.push(`<span class="ox-lv-chip" data-ox-key="temust">lexinfo:gender · masculine</span>`);
+      if (ex.gender) chips.push(`<span class="ox-lv-chip" data-ox-key="tazezlit">lexinfo:gender · ${esc(displayOrth(ex.gender))}</span>`);
+      if (ex.morphNote) chips.push(`<span class="ox-lv-chip" data-ox-key="esefses">skos:note · [état d'annexion] ${esc(displayOrth(ex.morphNote))}</span>`);
+      chips.push(`<span class="ox-lv-chip">rdfs:label · “${esc(lemma)}”@tmh</span>`);
+
+      const formRows = [];
+      formRows.push(`<div class="ox-lv-row" data-ox-key="tezugest">
+        <div class="ox-lv-pred">ontolex:canonicalForm</div>
+        <div class="ox-lv-val">“${esc(lemma)}”@tmh <span class="ox-lv-note">:form_${mid}</span></div>
+      </div>`);
+      (ex.plurals || []).forEach((p, i) => {
+        formRows.push(`<div class="ox-lv-row" data-ox-key="iget">
+          <div class="ox-lv-pred">ontolex:otherForm</div>
+          <div class="ox-lv-val">“${esc(displayOrth(p))}”@tmh <span class="ox-lv-note">lexinfo:plural</span></div>
+        </div>`);
+      });
+      (ex.variantsW || []).forEach((p) => {
+        if (isDialectPhrase(p)) {
+          formRows.push(`<div class="ox-lv-row" data-ox-key="tasteq">
+            <div class="ox-lv-pred">skos:note</div>
+            <div class="ox-lv-val">${esc(displayOrth(p))} <span class="ox-lv-note">dialect:tastəqW (phrase)</span></div>
+          </div>`);
+        } else {
+          formRows.push(`<div class="ox-lv-row" data-ox-key="tasteq">
+            <div class="ox-lv-pred">ontolex:otherForm</div>
+            <div class="ox-lv-val">“${esc(displayOrth(p))}”@tmh <span class="ox-lv-note">skos:note dialect:tastəqW</span></div>
+          </div>`);
+        }
+      });
+      if (ex.variantY) {
+        const p = ex.variantY;
+        if (isDialectPhrase(p)) {
+          formRows.push(`<div class="ox-lv-row" data-ox-key="tasteq"><div class="ox-lv-pred">skos:note</div><div class="ox-lv-val">${esc(displayOrth(p))} <span class="ox-lv-note">dialect:tastəqY</span></div></div>`);
+        } else {
+          formRows.push(`<div class="ox-lv-row" data-ox-key="tasteq"><div class="ox-lv-pred">ontolex:otherForm</div><div class="ox-lv-val">“${esc(displayOrth(p))}”@tmh <span class="ox-lv-note">dialect:tastəqY</span></div></div>`);
+        }
+      }
+
+      let catBlock = "";
+      if (ex.posVariant) {
+        const m2 = String(ex.posVariant).match(/:\s*([^\s.]+)/);
+        const vn = m2 ? m2[1] : "verbalNoun";
+        catBlock = `<div class="ox-lv-block" data-ox-key="variante_cat">
+          <div class="ox-lv-hd">
+            <span class="ox-lv-uri">:lex_${esc(vn)}</span>
+            <span class="ox-lv-class">ontolex:LexicalEntry · VerbalNoun · lexicon-only</span>
+          </div>
+          <div class="ox-lv-rows">
+            <div class="ox-lv-row"><div class="ox-lv-pred">canonicalForm</div><div class="ox-lv-val">“${esc(displayOrth(vn))}”@tmh</div></div>
+            <div class="ox-lv-row"><div class="ox-lv-pred">lexinfo:relatedForm</div><div class="ox-lv-val">← :lex_${mid} <span class="ox-lv-note">no lexicog:Entry</span></div></div>
+            <div class="ox-lv-row"><div class="ox-lv-pred">skos:note</div><div class="ox-lv-val">${esc(displayOrth(ex.posVariant))}</div></div>
+          </div>
+        </div>`;
+      }
+
+      const senseRows = [];
+      if (s.definitionTmh) {
+        senseRows.push(`<div class="ox-lv-row" data-ox-key="almagna"><div class="ox-lv-pred">skos:definition</div><div class="ox-lv-val">“${esc(displayOrth(s.definitionTmh))}”@tmh</div></div>`);
+      }
+      if (s.glossFra) {
+        senseRows.push(`<div class="ox-lv-row" data-ox-key="tefaransist"><div class="ox-lv-pred">skos:definition</div><div class="ox-lv-val">“${esc(s.glossFra)}”@fr <span class="ox-lv-note">French gloss (unsplit)</span></div></div>`);
+      }
+      (s.examples || []).forEach((exs) => {
+        senseRows.push(`<div class="ox-lv-row" data-ox-key="elmisal"><div class="ox-lv-pred">skos:example</div><div class="ox-lv-val">“${esc(displayOrth(exs))}”@tmh</div></div>`);
+      });
+
+      const relCards = [];
+      const pushRel = (items, key, pred, label) => {
+        (items || []).forEach(it => {
+          const form = displayOrth(it.form || it);
+          if (it.ref) {
+            relCards.push(`<div class="ox-lv-rel" data-ox-key="${key}"><div class="k">${pred}</div><div class="v">${esc(form)}</div><div class="r">→ :lex_${esc(it.ref)} (article)</div></div>`);
+          } else {
+            relCards.push(`<div class="ox-lv-rel" data-ox-key="${key}"><div class="k">${pred}</div><div class="v">${esc(form)}</div><div class="r">lexicon-only LexicalEntry · ${label}</div></div>`);
+          }
+        });
+      };
+      pushRel(s.synonyms, "anammelu", "vartrans · synonym", "no lexicog:Entry");
+      pushRel(s.antonyms, "anemmezrey", "vartrans · antonym", "no lexicog:Entry");
+      pushRel(s.seeAlso, "akku", "rdfs:seeAlso", "related");
+
+      return `<div class="ox-lexview">
+        <p class="ox-lv-note-bar">OntoLex LexView — standard modules (lexicog Entry describes LexicalEntry · skos · lexinfo · vartrans)</p>
+        <div class="ox-lv-block" data-ox-key="albab">
+          <div class="ox-lv-hd">
+            <span class="ox-lv-uri">:entry_${mid}</span>
+            <span class="ox-lv-class">lexicog:Entry</span>
+            <span class="ox-lv-note">describes →</span>
+            <span class="ox-lv-uri">:lex_${mid}</span>
+            <span class="ox-lv-class">ontolex:LexicalEntry · ${esc(posOnto)}</span>
+            <span class="ox-lv-lemma">${esc(lemma)}</span>
+          </div>
+          <div class="ox-lv-props">${chips.join("")}</div>
+          <h4 class="ox-lv-sec-title">Forms</h4>
+          <div class="ox-lv-rows">${formRows.join("")}</div>
+        </div>
+        ${catBlock}
+        <div class="ox-lv-sense" data-ox-key="elfighsat">
+          <div class="ox-lv-hd">
+            <span class="ox-lv-uri">:sense_${esc(s.id || ex.id + "_1")}</span>
+            <span class="ox-lv-class">ontolex:LexicalSense</span>
+          </div>
+          <div class="ox-lv-rows">${senseRows.join("") || `<div class="ox-lv-row"><div class="ox-lv-val">No sense literals</div></div>`}</div>
+          ${relCards.length ? `<h4 class="ox-lv-sec-title">Relations</h4><div class="ox-lv-relgrid">${relCards.join("")}</div>` : ""}
+        </div>
+      </div>`;
+    }
+
+    function ontoTemplateLexViewHtml() {
+      return `<div class="ox-lexview">
+        <p class="ox-lv-note-bar">OntoLex template — LexicographicResource + lime:Lexicon (separate)</p>
+        <div class="ox-lv-block" data-ox-key="dilaf">
+          <div class="ox-lv-hd"><span class="ox-lv-uri">:dictionary</span><span class="ox-lv-class">lexicog:LexicographicResource</span></div>
+          <div class="ox-lv-rows"><div class="ox-lv-row"><div class="ox-lv-pred">lime:Lexicon</div><div class="ox-lv-val">separate :lexicon · lime:language "tmh"</div></div></div>
+        </div>
+        <div class="ox-lv-block" data-ox-key="albab">
+          <div class="ox-lv-hd"><span class="ox-lv-uri">:entry_*</span><span class="ox-lv-class">lexicog:Entry</span><span class="ox-lv-note">describes</span><span class="ox-lv-uri">:lex_*</span><span class="ox-lv-class">LexicalEntry</span></div>
+          <div class="ox-lv-rows">
+            <div class="ox-lv-row" data-ox-key="tezugest"><div class="ox-lv-pred">canonicalForm</div><div class="ox-lv-val">Form · writtenRep @tmh</div></div>
+            <div class="ox-lv-row" data-ox-key="iget"><div class="ox-lv-pred">otherForm</div><div class="ox-lv-val">plural</div></div>
+            <div class="ox-lv-row" data-ox-key="tasteq"><div class="ox-lv-pred">otherForm / skos:note</div><div class="ox-lv-val">dialect token or phrase</div></div>
+            <div class="ox-lv-row" data-ox-key="temust"><div class="ox-lv-pred">lexinfo:partOfSpeech</div><div class="ox-lv-val">+ skos:notation</div></div>
+            <div class="ox-lv-row" data-ox-key="tazezlit"><div class="ox-lv-pred">lexinfo:gender</div><div class="ox-lv-val">optional</div></div>
+            <div class="ox-lv-row" data-ox-key="esefses"><div class="ox-lv-pred">skos:note</div><div class="ox-lv-val">[état d'annexion] …</div></div>
+            <div class="ox-lv-row" data-ox-key="variante_cat"><div class="ox-lv-pred">relatedForm</div><div class="ox-lv-val">lexicon-only VerbalNoun</div></div>
+          </div>
+        </div>
+        <div class="ox-lv-sense" data-ox-key="elfighsat">
+          <div class="ox-lv-hd"><span class="ox-lv-uri">:sense_*</span><span class="ox-lv-class">LexicalSense</span></div>
+          <div class="ox-lv-rows">
+            <div class="ox-lv-row" data-ox-key="almagna"><div class="ox-lv-pred">skos:definition</div><div class="ox-lv-val">@tmh</div></div>
+            <div class="ox-lv-row" data-ox-key="tefaransist"><div class="ox-lv-pred">skos:definition</div><div class="ox-lv-val">@fr</div></div>
+            <div class="ox-lv-row" data-ox-key="elmisal"><div class="ox-lv-pred">skos:example</div><div class="ox-lv-val">@tmh</div></div>
+            <div class="ox-lv-row" data-ox-key="anammelu"><div class="ox-lv-pred">vartrans synonym</div><div class="ox-lv-val">article or lexicon-only</div></div>
+            <div class="ox-lv-row" data-ox-key="anemmezrey"><div class="ox-lv-pred">vartrans antonym</div><div class="ox-lv-val">article or lexicon-only</div></div>
+            <div class="ox-lv-row" data-ox-key="akku"><div class="ox-lv-pred">rdfs:seeAlso</div><div class="ox-lv-val">related</div></div>
+          </div>
+        </div>
+      </div>`;
+    }
+
+    function buildOntoLexGraphModel(ex) {
+      const s = ex.sense || {};
+      const isVerb = String(ex.pos || "").startsWith("nml");
+      const posClass = isVerb ? "lexinfo:Verb" : "lexinfo:Noun";
+      const mid = ex.id;
+      const lemma = displayOrth(ex.lemma);
+      const senseId = s.id || ex.id + "_1";
+      const nodes = [];
+      const edges = [];
+
+      nodes.push({
+        id: "dict", col: 0, row: 0, kind: "struct",
+        cls: "lexicog:LexicographicResource",
+        sub: "owl:Thing",
+        title: ":dictionary",
+        lines: ['dct:language "tmh"', 'dct:language "fra"'],
+        oxKey: "dilaf",
+      });
+      nodes.push({
+        id: "entry", col: 0, row: 1, kind: "struct",
+        cls: "lexicog:Entry",
+        sub: "lexicog:LexicographicComponent",
+        title: `:entry_${mid}`,
+        lines: [`dct:identifier "${mid}"`],
+        oxKey: "albab",
+      });
+      nodes.push({
+        id: "lexicon", col: 1, row: 0, kind: "lex",
+        cls: "lime:Lexicon",
+        sub: "void:Dataset",
+        title: ":lexicon",
+        lines: ['lime:language "tmh"'],
+        oxKey: "dilaf",
+      });
+      const leLines = [
+        `lexinfo:partOfSpeech ${posClass}`,
+        `skos:notation "${displayOrth(ex.pos || "")}"`,
+        `rdfs:label "${lemma}"@tmh`,
+      ];
+      if (ex.gender) leLines.push(`lexinfo:gender lexinfo:${/tnt|fem/i.test(String(ex.gender)) ? "feminine" : "masculine"}`);
+      if (ex.morphNote) leLines.push(`skos:note "[état d'annexion] ${displayOrth(ex.morphNote)}"`);
+      nodes.push({
+        id: "le", col: 1, row: 1, kind: "lex",
+        cls: "ontolex:LexicalEntry",
+        sub: posClass,
+        title: `:lex_${mid}`,
+        lines: leLines,
+        oxKey: "albab",
+      });
+      edges.push({ from: "dict", to: "entry", label: "lexicog:entry" });
+      edges.push({ from: "entry", to: "le", label: "lexicog:describes" });
+      edges.push({ from: "lexicon", to: "le", label: "lime:entry" });
+
+      let fr = 0;
+      nodes.push({
+        id: "fc", col: 2, row: fr++, kind: "form",
+        cls: "ontolex:Form",
+        sub: "ontolex:Form",
+        title: `:form_${mid}`,
+        lines: [`ontolex:writtenRep "${lemma}"@tmh`],
+        oxKey: "tezugest",
+      });
+      edges.push({ from: "le", to: "fc", label: "ontolex:canonicalForm" });
+      (ex.plurals || []).forEach((p, i) => {
+        const id = `fpl${i}`;
+        nodes.push({
+          id, col: 2, row: fr++, kind: "form",
+          cls: "ontolex:Form",
+          sub: "ontolex:Form",
+          title: `:form_${mid}_pl${i || ""}`,
+          lines: [
+            `ontolex:writtenRep "${displayOrth(p)}"@tmh`,
+            "lexinfo:number lexinfo:plural",
+          ],
+          oxKey: "iget",
+        });
+        edges.push({ from: "le", to: id, label: "ontolex:otherForm" });
+      });
+      (ex.variantsW || []).forEach((p, i) => {
+        const id = `fw${i}`;
+        if (isDialectPhrase(p)) {
+          nodes.push({
+            id, col: 2, row: fr++, kind: "lit",
+            cls: "rdf:langString",
+            sub: "skos:note",
+            title: `skos:note @tmh`,
+            lines: [`"${displayOrth(p)}"@tmh`],
+            oxKey: "tasteq",
+          });
+          edges.push({ from: "le", to: id, label: "skos:note" });
+        } else {
+          nodes.push({
+            id, col: 2, row: fr++, kind: "form",
+            cls: "ontolex:Form",
+            sub: "ontolex:Form",
+            title: `:form_${mid}_W${i || ""}`,
+            lines: [
+              `ontolex:writtenRep "${displayOrth(p)}"@tmh`,
+              'skos:note "dialect:tastəqW"',
+            ],
+            oxKey: "tasteq",
+          });
+          edges.push({ from: "le", to: id, label: "ontolex:otherForm" });
+        }
+      });
+      if (ex.variantY) {
+        const p = ex.variantY;
+        if (isDialectPhrase(p)) {
+          nodes.push({
+            id: "fy", col: 2, row: fr++, kind: "lit",
+            cls: "rdf:langString",
+            sub: "skos:note",
+            title: "skos:note @tmh",
+            lines: [`"${displayOrth(p)}"@tmh`],
+            oxKey: "tasteq",
+          });
+          edges.push({ from: "le", to: "fy", label: "skos:note" });
+        } else {
+          nodes.push({
+            id: "fy", col: 2, row: fr++, kind: "form",
+            cls: "ontolex:Form",
+            sub: "ontolex:Form",
+            title: `:form_${mid}_Y`,
+            lines: [
+              `ontolex:writtenRep "${displayOrth(p)}"@tmh`,
+              'skos:note "dialect:tastəqY"',
+            ],
+            oxKey: "tasteq",
+          });
+          edges.push({ from: "le", to: "fy", label: "ontolex:otherForm" });
+        }
+      }
+
+      nodes.push({
+        id: "ls", col: 3, row: 0, kind: "sense",
+        cls: "ontolex:LexicalSense",
+        sub: "ontolex:LexicalSense",
+        title: `:sense_${senseId}`,
+        lines: [`dct:identifier "${senseId}"`],
+        oxKey: "elfighsat",
+      });
+      edges.push({ from: "le", to: "ls", label: "ontolex:sense" });
+
+      let sr = 0;
+      if (s.definitionTmh) {
+        nodes.push({
+          id: "def", col: 4, row: sr++, kind: "lit",
+          cls: "rdf:langString",
+          sub: "skos:definition",
+          title: "skos:definition @tmh",
+          lines: [`"${displayOrth(s.definitionTmh)}"@tmh`],
+          oxKey: "almagna",
+        });
+        edges.push({ from: "ls", to: "def", label: "skos:definition" });
+      }
+      if (s.glossFra) {
+        nodes.push({
+          id: "fr", col: 4, row: sr++, kind: "lit",
+          cls: "rdf:langString",
+          sub: "skos:definition",
+          title: "skos:definition @fr",
+          lines: [`"${s.glossFra}"@fr`],
+          oxKey: "tefaransist",
+        });
+        edges.push({ from: "ls", to: "fr", label: "skos:definition" });
+      }
+      (s.examples || []).forEach((exs, i) => {
+        nodes.push({
+          id: `ex${i}`, col: 4, row: sr++, kind: "lit",
+          cls: "rdf:langString",
+          sub: "skos:example",
+          title: "skos:example @tmh",
+          lines: [`"${displayOrth(exs)}"@tmh`],
+          oxKey: "elmisal",
+        });
+        edges.push({ from: "ls", to: `ex${i}`, label: "skos:example" });
+      });
+      const addRel = (items, key, cat, label, prefix) => {
+        (items || []).forEach((it, i) => {
+          const form = displayOrth(it.form || it);
+          const id = `${prefix}${i}`;
+          if (it.ref) {
+            nodes.push({
+              id, col: 4, row: sr++, kind: "rel",
+              cls: "ontolex:LexicalEntry",
+              sub: "ontolex:LexicalEntry",
+              title: `:lex_${it.ref}`,
+              lines: [`rdfs:label "${form}"@tmh`, `dct:identifier "${it.ref}"`],
+              oxKey: key,
+            });
+          } else {
+            nodes.push({
+              id, col: 4, row: sr++, kind: "rel",
+              cls: "ontolex:LexicalEntry",
+              sub: "ontolex:LexicalEntry",
+              title: `:lex_mention_${form}`,
+              lines: [`rdfs:label "${form}"@tmh`, "lime:entry (lexicon-only)"],
+              oxKey: key,
+            });
+          }
+          edges.push({ from: "ls", to: id, label });
+        });
+      };
+      addRel(s.synonyms, "anammelu", "syn", "vartrans:category lexinfo:synonym", "syn");
+      addRel(s.antonyms, "anemmezrey", "ant", "vartrans:category lexinfo:antonym", "ant");
+      addRel(s.seeAlso, "akku", "see", "rdfs:seeAlso", "see");
+
+      if (ex.posVariant) {
+        const m2 = String(ex.posVariant).match(/:\s*([^\s.]+)/);
+        const vn = m2 ? m2[1] : "vn";
+        nodes.push({
+          id: "vn", col: 1, row: 2, kind: "lex",
+          cls: "ontolex:LexicalEntry",
+          sub: "lexinfo:VerbalNoun",
+          title: `:lex_${displayOrth(vn)}`,
+          lines: [
+            `rdfs:label "${displayOrth(vn)}"@tmh`,
+            "lexinfo:partOfSpeech lexinfo:VerbalNoun",
+            "lime:entry (lexicon-only)",
+          ],
+          oxKey: "variante_cat",
+        });
+        edges.push({ from: "le", to: "vn", label: "lexinfo:relatedForm" });
+        edges.push({ from: "lexicon", to: "vn", label: "lime:entry" });
+      }
+
+      return {
+        title: `OntoLex · ${lemma}`,
+        note: "Standard OntoLex modules only · class / subclass / values · full literals.",
+        nodes,
+        edges,
+      };
+    }
+
+    function buildTemplateGraphModel() {
+      return {
+        title: "OntoLex template",
+        note: "Class · subclass · values for each resource (standard modules).",
+        nodes: [
+          {
+            id: "dict", col: 0, row: 0, kind: "struct",
+            cls: "lexicog:LexicographicResource",
+            sub: "owl:Thing",
+            title: ":dictionary",
+            lines: ['dct:language "tmh"', 'dct:language "fra"', "owl:versionInfo", "dct:license"],
+            oxKey: "dilaf",
+          },
+          {
+            id: "entry", col: 0, row: 1, kind: "struct",
+            cls: "lexicog:Entry",
+            sub: "lexicog:LexicographicComponent",
+            title: ":entry_{id}",
+            lines: ["dct:identifier", "lexicog:describes → LexicalEntry"],
+            oxKey: "albab",
+          },
+          {
+            id: "lexicon", col: 1, row: 0, kind: "lex",
+            cls: "lime:Lexicon",
+            sub: "void:Dataset",
+            title: ":lexicon",
+            lines: ['lime:language "tmh"', "lime:entry → LexicalEntry"],
+            oxKey: "dilaf",
+          },
+          {
+            id: "le", col: 1, row: 1, kind: "lex",
+            cls: "ontolex:LexicalEntry",
+            sub: "lexinfo:Noun | lexinfo:Verb | lexinfo:VerbalNoun",
+            title: ":lex_{id}",
+            lines: [
+              "lexinfo:partOfSpeech",
+              "skos:notation",
+              "rdfs:label @tmh",
+              "skos:note (annexation, optional)",
+            ],
+            oxKey: "albab",
+          },
+          {
+            id: "form", col: 2, row: 0, kind: "form",
+            cls: "ontolex:Form",
+            sub: "ontolex:Form",
+            title: ":form_{id}",
+            lines: [
+              "ontolex:writtenRep @tmh",
+              "lexinfo:number lexinfo:plural (otherForm)",
+              "skos:note dialect (optional)",
+            ],
+            oxKey: "tezugest",
+          },
+          {
+            id: "ls", col: 3, row: 0, kind: "sense",
+            cls: "ontolex:LexicalSense",
+            sub: "ontolex:LexicalSense",
+            title: ":sense_{id}",
+            lines: ["dct:identifier"],
+            oxKey: "elfighsat",
+          },
+          {
+            id: "def", col: 4, row: 0, kind: "lit",
+            cls: "rdf:langString",
+            sub: "skos:definition",
+            title: "skos:definition",
+            lines: ['"{definition}"@tmh', '"{gloss}"@fr'],
+            oxKey: "almagna",
+          },
+          {
+            id: "ex", col: 4, row: 1, kind: "lit",
+            cls: "rdf:langString",
+            sub: "skos:example",
+            title: "skos:example",
+            lines: ['"{example}"@tmh'],
+            oxKey: "elmisal",
+          },
+          {
+            id: "rel", col: 4, row: 2, kind: "rel",
+            cls: "ontolex:LexicalEntry",
+            sub: "ontolex:LexicalEntry",
+            title: ":lex_{target|mention}",
+            lines: [
+              "vartrans:category lexinfo:synonym",
+              "vartrans:category lexinfo:antonym",
+              "rdfs:seeAlso",
+            ],
+            oxKey: "anammelu",
+          },
+        ],
+        edges: [
+          { from: "dict", to: "entry", label: "lexicog:entry" },
+          { from: "entry", to: "le", label: "lexicog:describes" },
+          { from: "lexicon", to: "le", label: "lime:entry" },
+          { from: "le", to: "form", label: "ontolex:canonicalForm" },
+          { from: "le", to: "ls", label: "ontolex:sense" },
+          { from: "ls", to: "def", label: "skos:definition" },
+          { from: "ls", to: "ex", label: "skos:example" },
+          { from: "ls", to: "rel", label: "vartrans / seeAlso" },
+        ],
+      };
+    }
+
+    function ontoGraphHtml(ex) {
+      if (!window.OntoLexGraph) return `<p class="ox-cap">ontolex_graph.js missing</p>`;
+      return OntoLexGraph.render(buildOntoLexGraphModel(ex));
+    }
+
+    function ontoTemplateGraphHtml() {
+      if (!window.OntoLexGraph) return `<p class="ox-cap">ontolex_graph.js missing</p>`;
+      return OntoLexGraph.render(buildTemplateGraphModel());
+    }
+
+    function paintOntoLexGraphEdges(root) {
+      if (!window.OntoLexGraph || !root) return;
+      const run = () => OntoLexGraph.mount(root);
+      requestAnimationFrame(() => requestAnimationFrame(run));
+      // Second pass after flex layout settles (split pane width).
+      setTimeout(run, 60);
+    }
+
+    /** OntoLex page: nested DiLAF left · TBA right · initial mapping. */
+    function renderOntoLex() {
+      const body = document.getElementById("ontolex-body");
+      if (!body) return;
+
+      // [tmh, fr, en, onto, isPrivate]
+      const FIELD_ROWS = [
+        ["dilaf", "dictionnaire", "dictionary root", "lexicog:LexicographicResource + lime:Lexicon", false],
+        ["albab / @id", "article", "dictionary article", "lexicog:Entry → lexicog:describes → ontolex:LexicalEntry", false],
+        ["təzugəst", "entrée", "headword", "ontolex:canonicalForm → ontolex:Form · ontolex:writtenRep @tmh", false],
+        ["təmuṣt", "catégorie grammaticale", "part of speech", "lexinfo:partOfSpeech", false],
+        ["tazezlit", "genre", "gender", "lexinfo:gender", false],
+        ["əsəfsəs", "état d’annexion", "annexed state", "dilaf:annexedStateMarker", true],
+        ["igət", "pluriel", "plural", "ontolex:otherForm → ontolex:Form · lexinfo:number lexinfo:plural", false],
+        ["tastəqW / tastəqY", "variante dialectale", "dialect variant", "ontolex:otherForm → ontolex:Form (dialect) / note", false],
+        ["variante_cat", "variante de catégorie", "category variant (verbal noun)", "morph:WordFormationRelation → derived ontolex:LexicalEntry", false],
+        ["əlfiɣšǎt / @id", "signification", "sense", "ontolex:LexicalSense", false],
+        ["almaɣna", "définition", "definition", "skos:definition @tmh", false],
+        ["təfaransist", "français", "French gloss", "dilaf:frenchGloss @fr", true],
+        ["əlmisal", "exemple", "example", "skos:example @tmh", false],
+        ["anammelu", "synonyme", "synonym", "vartrans:SenseRelation · vartrans:category lexinfo:synonym", false],
+        ["anəmmezrəy", "antonyme", "antonym", "vartrans:SenseRelation · vartrans:category lexinfo:antonym", false],
+        ["ăkku", "voir", "see also", "rdfs:seeAlso → lexicog:Entry", false],
+      ];
+
+      const REL_ROWS = [
+        ["lexicog:LexicographicResource", "lexicog:entry", "lexicog:Entry", false],
+        ["lexicog:Entry", "lexicog:describes", "ontolex:LexicalEntry", false],
+        ["lime:Lexicon", "lime:entry", "ontolex:LexicalEntry", false],
+        ["lime:Lexicon", "lime:language", 'Language code "tmh"', false],
+        ["ontolex:LexicalEntry", "ontolex:canonicalForm", "ontolex:Form", false],
+        ["ontolex:LexicalEntry", "ontolex:otherForm", "ontolex:Form (plural / dialect)", false],
+        ["ontolex:Form", "ontolex:writtenRep", "Written form literal @tmh", false],
+        ["ontolex:Form", "lexinfo:number", "lexinfo:plural", false],
+        ["ontolex:LexicalEntry", "lexinfo:partOfSpeech", "LexInfo POS value", false],
+        ["ontolex:LexicalEntry", "lexinfo:gender", "LexInfo gender value", false],
+        ["ontolex:LexicalEntry", "dilaf:annexedStateMarker", "Marker literal", true],
+        ["ontolex:LexicalEntry", "ontolex:sense", "ontolex:LexicalSense", false],
+        ["ontolex:LexicalSense", "skos:definition", "Tamajaq definition @tmh", false],
+        ["ontolex:LexicalSense", "dilaf:frenchGloss", "French gloss @fr", true],
+        ["ontolex:LexicalSense", "skos:example", "Tamajaq example @tmh", false],
+        ["vartrans:SenseRelation", "vartrans:source", "Source ontolex:LexicalSense", false],
+        ["vartrans:SenseRelation", "vartrans:target", "Target ontolex:LexicalSense", false],
+        ["vartrans:SenseRelation", "vartrans:category", "lexinfo:synonym / lexinfo:antonym", false],
+        ["lexicog:Entry", "rdfs:seeAlso", "Referenced lexicog:Entry", false],
+        ["morph:WordFormationRelation", "vartrans:source", "Verb ontolex:LexicalEntry", false],
+        ["morph:WordFormationRelation", "vartrans:target", "Derived verbal-noun ontolex:LexicalEntry", false],
+      ];
+
+      const privBadge = `<span class="ox-priv-tag">private dilaf: · resolve</span>`;
+
+      const fieldTable = FIELD_ROWS.map(([tmh, fr, en, onto, priv]) => `
+        <tr class="${priv ? "ox-private" : ""}">
+          <td><code>${esc(displayOrth(tmh))}</code></td>
+          <td>${esc(fr)}</td>
+          <td>${esc(en)}</td>
+          <td><code class="${priv ? "ox-priv" : ""}">${esc(onto)}</code>${priv ? privBadge : ""}</td>
+        </tr>`).join("");
+
+      const relTable = REL_ROWS.map(([src, prop, tgt, priv]) => `
+        <tr class="${priv ? "ox-private" : ""}">
+          <td><code>${esc(src)}</code></td>
+          <td><code class="${priv ? "ox-priv" : ""}">${esc(prop)}</code>${priv ? privBadge : ""}</td>
+          <td><code>${esc(tgt)}</code></td>
+        </tr>`).join("");
+
+      body.innerHTML = `
+        <h2 class="sec">1 · Template · Original ↔ OntoLex</h2>
+        <p class="ox-intro">
+          Left: original DiLAF nested containment.
+          Right: OntoLex mapping — <strong>to be worked on</strong>.
+        </p>
+        <div class="ox-grid ox-tpl-grid" id="ox-template" role="group" aria-label="DiLAF–OntoLex template">
+          <div class="ox-panel" id="ox-tpl-left">
+            <h3>Original · DiLAF nested</h3>
+            <p class="ox-cap">Dictionary article containment (template)</p>
+            <div id="ox-tpl-left-body">${dilafTemplateNestedHtml()}</div>
+          </div>
+          <div class="ox-panel" id="ox-tpl-right">
+            <h3>OntoLex Version</h3>
+            <p class="ox-cap">Mapping view</p>
+            <div class="ox-tba" role="status">
+              <strong>To be worked on</strong>
+              <span>OntoLex LexView / Graph for this template will go here.</span>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="sec">2 · Initial OntoLex Mapping</h2>
+        <p class="ox-prelim">
+          Preliminary skeleton — machine-generated from the DiLAF source for structure and property inventory only.
+          Intended as a starting map for revision and further deliberation on the source, not a final conversion.
+          Rows marked <span class="ox-priv-tag">private dilaf: · resolve</span> use a private namespace and must be replaced or justified.
+        </p>
+
+        <h3 class="ox-h3">Architecture</h3>
+        <img class="ox-diagram" src="mermaid-diagram.png" alt="OntoLex-Lemon mapping diagram: LexicographicResource, Lexicon, Entry, LexicalEntry, Form, Sense, VarTrans and WordFormationRelation" />
+
+        <h3 class="ox-h3">1 · DiLAF field → OntoLex class / property</h3>
+        <div class="tablewrap" style="overflow:auto;border:1px solid var(--line);border-radius:10px;background:#fff;margin:0 0 1.25rem">
+          <table class="ox-map-table">
+            <thead>
+              <tr>
+                <th>Tamajaq (DiLAF)</th>
+                <th>Français</th>
+                <th>English</th>
+                <th>OntoLex Class / Property</th>
+              </tr>
+            </thead>
+            <tbody>${fieldTable}</tbody>
+          </table>
+        </div>
+
+        <h3 class="ox-h3">2 · OntoLex relationships</h3>
+        <div class="tablewrap" style="overflow:auto;border:1px solid var(--line);border-radius:10px;background:#fff;margin:0 0 1.25rem">
+          <table class="ox-map-table">
+            <thead>
+              <tr>
+                <th>Source (Class)</th>
+                <th>Property</th>
+                <th>Target (Class / Value)</th>
+              </tr>
+            </thead>
+            <tbody>${relTable}</tbody>
+          </table>
+        </div>`;
+    }
+
+    function renderInfo(doc) {
+      if (!doc || typeof doc !== "object" || !Array.isArray(doc.tags)) {
+        document.getElementById("info-meta").textContent = "labels.json failed to load";
+        document.getElementById("info-body").innerHTML =
+          `<p class="err">Serve over HTTP and hard-refresh. Run <code>build_labels_from_xml.py</code> if needed.</p>`;
+        return;
+      }
+      hydrateGlossMaps(doc);
+      const sum = doc.summary || {};
+      const tags = doc.tags || [];
+      const attrs = doc.attributes || [];
+      const values = doc.values || [];
+      const nEntries = sum.entries ?? doc.entries ?? 0;
+      const nTags = sum.tags ?? tags.length;
+      const nVals = sum.values ?? values.length;
+
+      document.getElementById("info-meta").textContent =
+        `${n(nEntries)} entries · ${n(nTags)} tags · ${n(nVals)} values`;
+
+      let tagCards = "", attrCards = "", valueCards = "";
+      try {
+        tagCards = tags.map(tagInfoCard).join("");
+        attrCards = attrs.map(attrInfoCard).join("");
+        valueCards = values.map(valueInfoCard).join("");
+      } catch (err) {
+        console.error(err);
+        document.getElementById("info-body").innerHTML = `<p class="err">${esc(err.message)}</p>`;
+        return;
+      }
+
+      document.getElementById("info-body").innerHTML = `
+        <div class="kpi-row">
+          <div class="kpi"><div class="k">Entries</div><div class="v">${n(nEntries)}</div></div>
+          <div class="kpi"><div class="k">Tags</div><div class="v">${n(nTags)}</div></div>
+          <div class="kpi"><div class="k">Values</div><div class="v">${n(nVals)}</div></div>
+        </div>
+
+        <section id="info-tags">
+          <h2 class="sec">Tags</h2>
+          <p class="sec-sub">Each tag shows what it means and where that meaning was found. Expand for values and frequency.</p>
+          <div class="info-stack">${tagCards}</div>
+          <h2 class="sec" style="font-size:1.05rem;margin-top:1.25rem">Attributes</h2>
+          <div class="info-stack">${attrCards}</div>
+        </section>
+
+        <section id="info-values">
+          <h2 class="sec">Value labels</h2>
+          <p class="sec-sub"><span class="tag-src">təmuṣt</span> abbreviations — forme longue, français, english.</p>
+          <div class="val-grid">${valueCards}</div>
+        </section>
+      `;
+    }
+
+    const bust = `v=${Date.now()}`;
+    Promise.all([
+      fetch(`dilaf_tmh_fra_v1.3.json?${bust}`).then(r => { if (!r.ok) throw new Error("Missing dilaf_tmh_fra_v1.3.json"); return r.json(); }),
+      fetch(`labels.json?${bust}`).then(r => { if (!r.ok) throw new Error("Missing labels.json — run build_labels_from_xml.py"); return r.json(); }),
+    ])
+      .then(([dictDoc, lab]) => {
+        entries = dictDoc.entries || [];
+        byId = Object.fromEntries(entries.map(e => [e.id, e]));
+        renderInfo(lab);
+        renderOntoLex();
+        const poses = [...new Set(entries.map(e => e.pos).filter(Boolean))].sort();
+        poses.forEach(p => {
+          const o = document.createElement("option");
+          o.value = p;
+          const fr = glossFr(p);
+          const en = glossEn(p);
+          o.textContent = en && fr ? `${displayOrth(p)} — ${fr} / ${en}`
+            : fr ? `${displayOrth(p)} — ${fr}` : displayOrth(p);
+          posSel.appendChild(o);
+        });
+        buildAlphaRail();
+        filter();
+      })
+      .catch(err => {
+        console.error(err);
+        meta.textContent = "";
+        list.innerHTML = `<p class="err">${esc(err.message)}<br><br>
+          <code>python -m http.server 8080</code> then open
+          <code>http://localhost:8080/viewer.html</code></p>`;
+        const im = document.getElementById("info-meta");
+        if (im) im.textContent = err.message;
+        const ib = document.getElementById("info-body");
+        if (ib) ib.innerHTML = `<p class="err">${esc(err.message)}</p>`;
+      });
+
+    q.addEventListener("input", () => {
+      if (q.value.trim() && activeLetter) setActiveLetter("");
+      filter();
+    });
+    posSel.addEventListener("change", filter);
+  </script>
+</body>
+</html>

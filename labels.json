@@ -1,0 +1,1502 @@
+{
+  "title": "DiLAF Tamajaq–French — tags & values (from XML + official glossaries)",
+  "version": "1.3",
+  "sourceXml": "dilaf_tmh_fra_v1.3.xml",
+  "entries": 5203,
+  "glossaries": {
+    "elements": "tamajaq/tamajaq/Elements_tamajaq_v2.pdf",
+    "etiquettes": "tamajaq/tamajaq/Etiquettes_tamajaq.pdf",
+    "alphabet": "tamajaq/tamajaq/alphabet_tamajaq_v3.pdf",
+    "presentation": "tamajaq/tamajaq/Presentation_tamajaq.pdf"
+  },
+  "summary": {
+    "entries": 5203,
+    "tags": 23,
+    "attributes": 7,
+    "values": 57,
+    "posLabels": 24
+  },
+  "tags": [
+    {
+      "tag": "albab",
+      "mentions": 5203,
+      "entriesWith": 5203,
+      "coveragePct": 100.0,
+      "uniqueValues": 0,
+      "mapping": {
+        "status": "mapped",
+        "français": "article",
+        "source": "Elements_tamajaq_v2.pdf",
+        "sourceSpelling": "albab",
+        "anglais": "entry"
+      },
+      "values": [],
+      "valuesNote": null
+    },
+    {
+      "tag": "təmuṣt",
+      "mentions": 5203,
+      "entriesWith": 5203,
+      "coveragePct": 100.0,
+      "uniqueValues": 23,
+      "mapping": {
+        "status": "mapped",
+        "français": "catégorie grammaticale",
+        "source": "Elements_tamajaq_v2.pdf",
+        "sourceSpelling": "təmuṣt",
+        "anglais": "part of speech"
+      },
+      "values": [
+        {
+          "value": "sn. yy.",
+          "count": 2328,
+          "share": 44.74,
+          "formeLongue": "isən yey",
+          "français": "nom masculin",
+          "source": "Etiquettes_tamajaq.pdf",
+          "status": "mapped",
+          "anglais": "masculine noun"
+        },
+        {
+          "value": "nml.",
+          "count": 1396,
+          "share": 26.83,
+          "formeLongue": "anamal",
+          "français": "verbe",
+          "source": "Etiquettes_tamajaq.pdf",
+          "status": "mapped",
+          "anglais": "verb"
+        },
+        {
+          "value": "sn. tnt.",
+          "count": 1168,
+          "share": 22.45,
+          "formeLongue": "isən tənte",
+          "français": "nom féminin",
+          "source": "Etiquettes_tamajaq.pdf",
+          "status": "mapped",
+          "anglais": "feminine noun"
+        },
+        {
+          "value": "sn-ẓwn. yy.",
+          "count": 111,
+          "share": 2.13,
+          "formeLongue": "isən iẓẓəwen yey",
+          "français": "nom composé masculin",
+          "source": "Etiquettes_tamajaq.pdf",
+          "status": "mapped",
+          "anglais": "masculine compound noun"
+        },
+        {
+          "value": "sml. yy.",
+          "count": 59,
+          "share": 1.13,
+          "formeLongue": "asamal yey",
+          "français": "adjectif masculin",
+          "source": "Etiquettes_tamajaq.pdf",
+          "status": "mapped",
+          "anglais": "masculine adjective"
+        },
+        {
+          "value": "sn-ẓwn. tnt.",
+          "count": 47,
+          "share": 0.9,
+          "formeLongue": "isən iẓẓəwen tənte",
+          "français": "nom composé féminin",
+          "source": "Etiquettes_tamajaq.pdf",
+          "status": "mapped",
+          "anglais": "feminine compound noun"
+        },
+        {
+          "value": "sn-xln. yy.",
+          "count": 17,
+          "share": 0.33,
+          "formeLongue": "isən xalalan yey",
+          "français": "nom propre masculin",
+          "source": "Etiquettes_tamajaq.pdf",
+          "status": "mapped",
+          "anglais": "masculine proper noun"
+        },
+        {
+          "value": "tɣrt.",
+          "count": 14,
+          "share": 0.27,
+          "formeLongue": "təɣərit",
+          "français": "exclamation, interjection",
+          "source": "Etiquettes_tamajaq.pdf",
+          "status": "mapped",
+          "anglais": "exclamation / interjection"
+        },
+        {
+          "value": "sn-nml.",
+          "count": 13,
+          "share": 0.25,
+          "formeLongue": "isən n anamal",
+          "français": "nom verbal",
+          "source": "Etiquettes_tamajaq.pdf",
+          "status": "mapped",
+          "anglais": "verbal noun"
+        },
+        {
+          "value": "stkr-dg.",
+          "count": 11,
+          "share": 0.21,
+          "formeLongue": "əṣatkar n adag",
+          "français": "adverbe de lieu",
+          "source": "Etiquettes_tamajaq.pdf",
+          "status": "mapped",
+          "anglais": "locative adverb"
+        },
+        {
+          "value": "sn-xln. tnt.",
+          "count": 10,
+          "share": 0.19,
+          "formeLongue": "isən xalalan tənte",
+          "français": "nom propre féminin",
+          "source": "Etiquettes_tamajaq.pdf",
+          "status": "mapped",
+          "anglais": "feminine proper noun"
+        },
+        {
+          "value": "nml-ẓwn.",
+          "count": 10,
+          "share": 0.19,
+          "formeLongue": "anamal iẓẓəwen",
+          "français": "verbe composé",
+          "source": "Etiquettes_tamajaq.pdf",
+          "status": "mapped",
+          "anglais": "compound verb"
+        },
+        {
+          "value": "stkr.",
+          "count": 3,
+          "share": 0.06,
+          "formeLongue": "əṣatkar",
+          "français": "adverbe",
+          "source": "Etiquettes_tamajaq.pdf",
+          "status": "mapped",
+          "anglais": "adverb"
+        },
+        {
+          "value": "ḍkḍ.",
+          "count": 3,
+          "share": 0.06,
+          "formeLongue": "əḍḍəkuḍ",
+          "français": "numéral",
+          "source": "Etiquettes_tamajaq.pdf",
+          "status": "mapped",
+          "anglais": "numeral"
+        },
+        {
+          "value": "sml. tnt.",
+          "count": 3,
+          "share": 0.06,
+          "formeLongue": "asamal tənte",
+          "français": "adjectif féminin",
+          "source": "Etiquettes_tamajaq.pdf",
+          "status": "mapped",
+          "anglais": "feminine adjective"
+        },
+        {
+          "value": "stkr-lwq.",
+          "count": 2,
+          "share": 0.04,
+          "formeLongue": "əṣatkar n alwaq",
+          "français": "adverbe de temps",
+          "source": "Etiquettes_tamajaq.pdf",
+          "status": "mapped",
+          "anglais": "temporal adverb"
+        },
+        {
+          "value": "smmdɣ-tl.",
+          "count": 2,
+          "share": 0.04,
+          "formeLongue": "əsəmmadaɣ ən təla",
+          "français": "pronom dépendant",
+          "source": "Etiquettes_tamajaq.pdf",
+          "status": "mapped",
+          "anglais": "dependent pronoun"
+        },
+        {
+          "value": "tnlkmt.",
+          "count": 1,
+          "share": 0.02,
+          "formeLongue": "tənalkamt",
+          "français": "particule de rapprochement",
+          "source": "Etiquettes_tamajaq.pdf",
+          "status": "mapped",
+          "anglais": "approaching particle"
+        },
+        {
+          "value": "stkr-ḍkḍ.",
+          "count": 1,
+          "share": 0.02,
+          "formeLongue": "əṣatkar n əḍəkuḍ",
+          "français": "adverbe de quantité",
+          "source": "Etiquettes_tamajaq.pdf",
+          "status": "mapped",
+          "anglais": "quantitative adverb"
+        },
+        {
+          "value": "tmsq.",
+          "count": 1,
+          "share": 0.02,
+          "formeLongue": "təmaṣaq",
+          "français": "particule de rection",
+          "source": "Etiquettes_tamajaq.pdf",
+          "status": "mapped",
+          "anglais": "rection particle"
+        },
+        {
+          "value": "nlk.",
+          "count": 1,
+          "share": 0.02,
+          "formeLongue": "ənalkam",
+          "français": "déterminant",
+          "source": "Etiquettes_tamajaq.pdf",
+          "status": "mapped",
+          "anglais": "determiner"
+        },
+        {
+          "value": "smmdɣ-tl. tnt.",
+          "count": 1,
+          "share": 0.02,
+          "formeLongue": "əsəmmadaɣ ən təla tənte",
+          "français": "pronom dépendant féminin",
+          "source": "Etiquettes_tamajaq.pdf",
+          "status": "mapped",
+          "anglais": "feminine dependent pronoun"
+        },
+        {
+          "value": "smmdɣ-tl. yy.",
+          "count": 1,
+          "share": 0.02,
+          "formeLongue": "əsəmmadaɣ ən təla yey",
+          "français": "pronom dépendant masculin",
+          "source": "Etiquettes_tamajaq.pdf",
+          "status": "mapped",
+          "anglais": "masculine dependent pronoun"
+        }
+      ],
+      "valuesNote": null
+    },
+    {
+      "tag": "təzugəst",
+      "mentions": 5203,
+      "entriesWith": 5203,
+      "coveragePct": 100.0,
+      "uniqueValues": 4299,
+      "mapping": {
+        "status": "mapped",
+        "français": "entrée",
+        "source": "Elements_tamajaq_v2.pdf",
+        "sourceSpelling": "təzugəst",
+        "anglais": "headword"
+      },
+      "values": [],
+      "valuesNote": "Open text / forms — 4299 unique values (not listed individually)"
+    },
+    {
+      "tag": "əlfiɣšǎt",
+      "mentions": 5203,
+      "entriesWith": 5203,
+      "coveragePct": 100.0,
+      "uniqueValues": 0,
+      "mapping": {
+        "status": "mapped",
+        "français": "signification",
+        "source": "Elements_tamajaq_v2.pdf",
+        "sourceSpelling": "əlfiɣšat",
+        "anglais": "sense"
+      },
+      "values": [],
+      "valuesNote": null
+    },
+    {
+      "tag": "təfaransist",
+      "mentions": 5193,
+      "entriesWith": 5193,
+      "coveragePct": 99.81,
+      "uniqueValues": 4588,
+      "mapping": {
+        "status": "mapped",
+        "français": "français",
+        "source": "Elements_tamajaq_v2.pdf",
+        "sourceSpelling": "təfaransist",
+        "anglais": "French"
+      },
+      "values": [],
+      "valuesNote": "Open text / forms — 4588 unique values (not listed individually)"
+    },
+    {
+      "tag": "almaɣna",
+      "mentions": 4755,
+      "entriesWith": 4755,
+      "coveragePct": 91.39,
+      "uniqueValues": 4721,
+      "mapping": {
+        "status": "mapped",
+        "français": "définition",
+        "source": "Elements_tamajaq_v2.pdf",
+        "sourceSpelling": "almaɣna",
+        "anglais": "definition"
+      },
+      "values": [],
+      "valuesNote": "Open text / forms — 4721 unique values (not listed individually)"
+    },
+    {
+      "tag": "əlmisal",
+      "mentions": 4654,
+      "entriesWith": 4650,
+      "coveragePct": 89.37,
+      "uniqueValues": 4650,
+      "mapping": {
+        "status": "mapped",
+        "français": "exemple",
+        "source": "Elements_tamajaq_v2.pdf",
+        "sourceSpelling": "əlmisal",
+        "anglais": "example"
+      },
+      "values": [],
+      "valuesNote": "Open text / forms — 4650 unique values (not listed individually)"
+    },
+    {
+      "tag": "igət",
+      "mentions": 3657,
+      "entriesWith": 3551,
+      "coveragePct": 68.25,
+      "uniqueValues": 3233,
+      "mapping": {
+        "status": "mapped",
+        "français": "pluriel",
+        "source": "Elements_tamajaq_v2.pdf",
+        "sourceSpelling": "igət",
+        "anglais": "plural"
+      },
+      "values": [],
+      "valuesNote": "Open text / forms — 3233 unique values (not listed individually)"
+    },
+    {
+      "tag": "anammelu",
+      "mentions": 2205,
+      "entriesWith": 1912,
+      "coveragePct": 36.75,
+      "uniqueValues": 1815,
+      "mapping": {
+        "status": "mapped",
+        "français": "synonyme",
+        "source": "Elements_tamajaq_v2.pdf",
+        "sourceSpelling": "anammelu",
+        "anglais": "synonym"
+      },
+      "values": [],
+      "valuesNote": "Open text / forms — 1815 unique values (not listed individually)"
+    },
+    {
+      "tag": "əsəfsəs",
+      "mentions": 941,
+      "entriesWith": 941,
+      "coveragePct": 18.09,
+      "uniqueValues": 26,
+      "mapping": {
+        "status": "mapped",
+        "français": "état d’annexion",
+        "source": "Elements_tamajaq_v2.pdf",
+        "sourceSpelling": "aəsəfsəs",
+        "anglais": "annexed state"
+      },
+      "values": [
+        {
+          "value": "ǎ",
+          "count": 388,
+          "share": 41.23,
+          "status": "observed"
+        },
+        {
+          "value": "ə",
+          "count": 186,
+          "share": 19.77,
+          "status": "observed"
+        },
+        {
+          "value": "tə",
+          "count": 148,
+          "share": 15.73,
+          "status": "observed"
+        },
+        {
+          "value": "tǎ",
+          "count": 132,
+          "share": 14.03,
+          "status": "observed"
+        },
+        {
+          "value": "a",
+          "count": 21,
+          "share": 2.23,
+          "status": "observed"
+        },
+        {
+          "value": "ta",
+          "count": 15,
+          "share": 1.59,
+          "status": "observed"
+        },
+        {
+          "value": "ǎ/ə",
+          "count": 8,
+          "share": 0.85,
+          "status": "observed"
+        },
+        {
+          "value": "i",
+          "count": 6,
+          "share": 0.64,
+          "status": "observed"
+        },
+        {
+          "value": "te",
+          "count": 5,
+          "share": 0.53,
+          "status": "observed"
+        },
+        {
+          "value": "e",
+          "count": 4,
+          "share": 0.43,
+          "status": "observed"
+        },
+        {
+          "value": "ti",
+          "count": 4,
+          "share": 0.43,
+          "status": "observed"
+        },
+        {
+          "value": "ǎ /ə",
+          "count": 3,
+          "share": 0.32,
+          "status": "observed"
+        },
+        {
+          "value": "tǎ / tə",
+          "count": 3,
+          "share": 0.32,
+          "status": "observed"
+        },
+        {
+          "value": "ǎ / ə",
+          "count": 2,
+          "share": 0.21,
+          "status": "observed"
+        },
+        {
+          "value": "ə-ǎ",
+          "count": 2,
+          "share": 0.21,
+          "status": "observed"
+        },
+        {
+          "value": "bǎ",
+          "count": 2,
+          "share": 0.21,
+          "status": "observed"
+        },
+        {
+          "value": "u",
+          "count": 2,
+          "share": 0.21,
+          "status": "observed"
+        },
+        {
+          "value": "tǎ /tə",
+          "count": 2,
+          "share": 0.21,
+          "status": "observed"
+        },
+        {
+          "value": "ə/ǎ",
+          "count": 1,
+          "share": 0.11,
+          "status": "observed"
+        },
+        {
+          "value": "ə /ǎ",
+          "count": 1,
+          "share": 0.11,
+          "status": "observed"
+        },
+        {
+          "value": "sn. yy",
+          "count": 1,
+          "share": 0.11,
+          "status": "observed"
+        },
+        {
+          "value": "hǎ",
+          "count": 1,
+          "share": 0.11,
+          "status": "observed"
+        },
+        {
+          "value": "mǎ",
+          "count": 1,
+          "share": 0.11,
+          "status": "observed"
+        },
+        {
+          "value": "ma",
+          "count": 1,
+          "share": 0.11,
+          "status": "observed"
+        },
+        {
+          "value": "sn. tnt",
+          "count": 1,
+          "share": 0.11,
+          "status": "observed"
+        },
+        {
+          "value": "tǎ/tə",
+          "count": 1,
+          "share": 0.11,
+          "status": "observed"
+        }
+      ],
+      "valuesNote": null
+    },
+    {
+      "tag": "ǎkku",
+      "mentions": 448,
+      "entriesWith": 443,
+      "coveragePct": 8.51,
+      "uniqueValues": 410,
+      "mapping": {
+        "status": "mapped",
+        "français": "voir",
+        "source": "Elements_tamajaq_v2.pdf",
+        "sourceSpelling": "akku",
+        "anglais": "see / see also"
+      },
+      "values": [],
+      "valuesNote": "Open text / forms — 410 unique values (not listed individually)"
+    },
+    {
+      "tag": "anəmmezrəy",
+      "mentions": 305,
+      "entriesWith": 292,
+      "coveragePct": 5.61,
+      "uniqueValues": 271,
+      "mapping": {
+        "status": "mapped",
+        "français": "antonyme",
+        "source": "Elements_tamajaq_v2.pdf",
+        "sourceSpelling": "anəmmezrəy",
+        "anglais": "antonym"
+      },
+      "values": [],
+      "valuesNote": "Open text / forms — 271 unique values (not listed individually)"
+    },
+    {
+      "tag": "tastəqW",
+      "mentions": 232,
+      "entriesWith": 231,
+      "coveragePct": 4.44,
+      "uniqueValues": 230,
+      "mapping": {
+        "status": "mapped",
+        "français": "variante tawəlləmət (ouest)",
+        "source": "Elements_tamajaq_v2.pdf",
+        "sourceSpelling": "tastəqW",
+        "anglais": "western dialect variant (tawəlləmət)"
+      },
+      "values": [],
+      "valuesNote": "Open text / forms — 230 unique values (not listed individually)"
+    },
+    {
+      "tag": "tazezlit",
+      "mentions": 12,
+      "entriesWith": 12,
+      "coveragePct": 0.23,
+      "uniqueValues": 2,
+      "mapping": {
+        "status": "mapped",
+        "français": "genre (masculin / féminin)",
+        "source": "Elements_tamajaq_v2.pdf",
+        "sourceSpelling": "tazezlit",
+        "anglais": "gender (masculine / feminine)"
+      },
+      "values": [
+        {
+          "value": "masculin",
+          "count": 8,
+          "share": 66.67,
+          "français": "masculin",
+          "source": "XML value (French)",
+          "status": "french_value",
+          "anglais": "masculine"
+        },
+        {
+          "value": "féminin",
+          "count": 4,
+          "share": 33.33,
+          "français": "féminin",
+          "source": "XML value (French)",
+          "status": "french_value",
+          "anglais": "feminine"
+        }
+      ],
+      "valuesNote": null
+    },
+    {
+      "tag": "tastəqY",
+      "mentions": 6,
+      "entriesWith": 6,
+      "coveragePct": 0.12,
+      "uniqueValues": 6,
+      "mapping": {
+        "status": "mapped",
+        "français": "variante tayart (Nord)",
+        "source": "Elements_tamajaq_v2.pdf",
+        "sourceSpelling": "tastəqY",
+        "anglais": "northern dialect variant (tayart)"
+      },
+      "values": [],
+      "valuesNote": "Open text / forms — 6 unique values (not listed individually)"
+    },
+    {
+      "tag": "variante_cat",
+      "mentions": 6,
+      "entriesWith": 6,
+      "coveragePct": 0.12,
+      "uniqueValues": 6,
+      "mapping": {
+        "français": "variante de catégorie",
+        "anglais": "category variant",
+        "status": "assumed",
+        "source": "projected from usage (not in Elements_tamajaq_v2.pdf)",
+        "note": "On verbs (nml.): notes a verbal-noun form. Value pattern snml : FORM ≈ sn-nml. (nom verbal)."
+      },
+      "values": [
+        {
+          "value": "snml : edag.",
+          "count": 1,
+          "share": 16.67,
+          "status": "assumed",
+          "code": "snml",
+          "form": "edag.",
+          "français": "nom verbal",
+          "anglais": "verbal noun",
+          "source": "projected: snml ≈ sn-nml. (Etiquettes)",
+          "formeLongue": "isən n anamal",
+          "display": "snml : edag."
+        },
+        {
+          "value": "snml : eḍan",
+          "count": 1,
+          "share": 16.67,
+          "status": "assumed",
+          "code": "snml",
+          "form": "eḍan",
+          "français": "nom verbal",
+          "anglais": "verbal noun",
+          "source": "projected: snml ≈ sn-nml. (Etiquettes)",
+          "formeLongue": "isən n anamal",
+          "display": "snml : eḍan"
+        },
+        {
+          "value": "snml : eḍəs.",
+          "count": 1,
+          "share": 16.67,
+          "status": "assumed",
+          "code": "snml",
+          "form": "eḍəs.",
+          "français": "nom verbal",
+          "anglais": "verbal noun",
+          "source": "projected: snml ≈ sn-nml. (Etiquettes)",
+          "formeLongue": "isən n anamal",
+          "display": "snml : eḍəs."
+        },
+        {
+          "value": "snml : eday.",
+          "count": 1,
+          "share": 16.67,
+          "status": "assumed",
+          "code": "snml",
+          "form": "eday.",
+          "français": "nom verbal",
+          "anglais": "verbal noun",
+          "source": "projected: snml ≈ sn-nml. (Etiquettes)",
+          "formeLongue": "isən n anamal",
+          "display": "snml : eday."
+        },
+        {
+          "value": "snml : eddar.",
+          "count": 1,
+          "share": 16.67,
+          "status": "assumed",
+          "code": "snml",
+          "form": "eddar.",
+          "français": "nom verbal",
+          "anglais": "verbal noun",
+          "source": "projected: snml ≈ sn-nml. (Etiquettes)",
+          "formeLongue": "isən n anamal",
+          "display": "snml : eddar."
+        },
+        {
+          "value": "snml : aɣawaš.",
+          "count": 1,
+          "share": 16.67,
+          "status": "assumed",
+          "code": "snml",
+          "form": "aɣawaš.",
+          "français": "nom verbal",
+          "anglais": "verbal noun",
+          "source": "projected: snml ≈ sn-nml. (Etiquettes)",
+          "formeLongue": "isən n anamal",
+          "display": "snml : aɣawaš."
+        }
+      ],
+      "valuesNote": null
+    },
+    {
+      "tag": "auteurs",
+      "mentions": 1,
+      "entriesWith": 0,
+      "coveragePct": 0.0,
+      "uniqueValues": 1,
+      "mapping": {
+        "status": "french_meta",
+        "français": "auteurs",
+        "source": "XML document structure (French meta)",
+        "anglais": "authors"
+      },
+      "values": [],
+      "valuesNote": "Open text / forms — 1 unique values (not listed individually)"
+    },
+    {
+      "tag": "avertissement",
+      "mentions": 1,
+      "entriesWith": 0,
+      "coveragePct": 0.0,
+      "uniqueValues": 0,
+      "mapping": {
+        "status": "french_meta",
+        "français": "avertissement",
+        "source": "XML document structure (French meta)",
+        "anglais": "notice"
+      },
+      "values": [],
+      "valuesNote": "Open text / forms — 0 unique values (not listed individually)"
+    },
+    {
+      "tag": "dilaf",
+      "mentions": 1,
+      "entriesWith": 0,
+      "coveragePct": 0.0,
+      "uniqueValues": 0,
+      "mapping": {
+        "status": "french_meta",
+        "français": "dilaf",
+        "source": "XML document structure (French meta)",
+        "anglais": "DiLAF root"
+      },
+      "values": [],
+      "valuesNote": null
+    },
+    {
+      "tag": "license",
+      "mentions": 1,
+      "entriesWith": 0,
+      "coveragePct": 0.0,
+      "uniqueValues": 0,
+      "mapping": {
+        "status": "french_meta",
+        "français": "license",
+        "source": "XML document structure (French meta)",
+        "anglais": "licence"
+      },
+      "values": [],
+      "valuesNote": null
+    },
+    {
+      "tag": "ref",
+      "mentions": 1,
+      "entriesWith": 0,
+      "coveragePct": 0.0,
+      "uniqueValues": 1,
+      "mapping": {
+        "status": "french_meta",
+        "français": "ref",
+        "source": "XML document structure (French meta)",
+        "anglais": "reference"
+      },
+      "values": [],
+      "valuesNote": "Open text / forms — 1 unique values (not listed individually)"
+    },
+    {
+      "tag": "source",
+      "mentions": 1,
+      "entriesWith": 0,
+      "coveragePct": 0.0,
+      "uniqueValues": 0,
+      "mapping": {
+        "status": "french_meta",
+        "français": "source",
+        "source": "XML document structure (French meta)",
+        "anglais": "source block"
+      },
+      "values": [],
+      "valuesNote": null
+    },
+    {
+      "tag": "titre",
+      "mentions": 1,
+      "entriesWith": 0,
+      "coveragePct": 0.0,
+      "uniqueValues": 1,
+      "mapping": {
+        "status": "french_meta",
+        "français": "titre",
+        "source": "XML document structure (French meta)",
+        "anglais": "title"
+      },
+      "values": [],
+      "valuesNote": "Open text / forms — 1 unique values (not listed individually)"
+    }
+  ],
+  "attributes": [
+    {
+      "attribute": "id",
+      "tag": "@id",
+      "mentions": 10406,
+      "uniqueValues": 10406,
+      "mapping": {
+        "status": "technical",
+        "français": "identifiant",
+        "source": "XML / French attribute name",
+        "anglais": "identifier"
+      },
+      "values": [],
+      "valuesNote": "10406 unique values"
+    },
+    {
+      "attribute": "sadderan",
+      "tag": "@sadderan",
+      "mentions": 1566,
+      "uniqueValues": 1041,
+      "mapping": {
+        "status": "mapped",
+        "français": "objectif (article)",
+        "source": "Elements_tamajaq_v2.pdf",
+        "anglais": "target entry"
+      },
+      "values": [],
+      "valuesNote": "1041 unique values"
+    },
+    {
+      "attribute": "datecreation",
+      "tag": "@datecreation",
+      "mentions": 1,
+      "uniqueValues": 1,
+      "mapping": {
+        "status": "technical",
+        "français": "date de création",
+        "source": "XML / French attribute name",
+        "anglais": "creation date"
+      },
+      "values": [
+        {
+          "value": "25/07/2017",
+          "count": 1,
+          "share": 100.0,
+          "status": "observed"
+        }
+      ],
+      "valuesNote": null
+    },
+    {
+      "attribute": "lien",
+      "tag": "@lien",
+      "mentions": 1,
+      "uniqueValues": 1,
+      "mapping": {
+        "status": "technical",
+        "français": "lien",
+        "source": "XML / French attribute name",
+        "anglais": "link"
+      },
+      "values": [
+        {
+          "value": "https://creativecommons.org/licenses/by-nc-sa/2.0/",
+          "count": 1,
+          "share": 100.0,
+          "status": "observed"
+        }
+      ],
+      "valuesNote": null
+    },
+    {
+      "attribute": "src",
+      "tag": "@src",
+      "mentions": 1,
+      "uniqueValues": 1,
+      "mapping": {
+        "status": "technical",
+        "français": "langue source",
+        "source": "XML / French attribute name",
+        "anglais": "source language"
+      },
+      "values": [
+        {
+          "value": "tmh",
+          "count": 1,
+          "share": 100.0,
+          "status": "observed"
+        }
+      ],
+      "valuesNote": null
+    },
+    {
+      "attribute": "trg",
+      "tag": "@trg",
+      "mentions": 1,
+      "uniqueValues": 1,
+      "mapping": {
+        "status": "technical",
+        "français": "langue cible",
+        "source": "XML / French attribute name",
+        "anglais": "target language"
+      },
+      "values": [
+        {
+          "value": "fra",
+          "count": 1,
+          "share": 100.0,
+          "status": "observed"
+        }
+      ],
+      "valuesNote": null
+    },
+    {
+      "attribute": "version",
+      "tag": "@version",
+      "mentions": 1,
+      "uniqueValues": 1,
+      "mapping": {
+        "status": "technical",
+        "français": "version",
+        "source": "XML / French attribute name",
+        "anglais": "version"
+      },
+      "values": [
+        {
+          "value": "1.3",
+          "count": 1,
+          "share": 100.0,
+          "status": "observed"
+        }
+      ],
+      "valuesNote": null
+    }
+  ],
+  "values": [
+    {
+      "value": "sn. yy.",
+      "formeLongue": "isən yey",
+      "français": "nom masculin",
+      "source": "Etiquettes_tamajaq.pdf",
+      "status": "mapped",
+      "inXml": true,
+      "count": 2328,
+      "anglais": "masculine noun"
+    },
+    {
+      "value": "nml.",
+      "formeLongue": "anamal",
+      "français": "verbe",
+      "source": "Etiquettes_tamajaq.pdf",
+      "status": "mapped",
+      "inXml": true,
+      "count": 1396,
+      "anglais": "verb"
+    },
+    {
+      "value": "sn. tnt.",
+      "formeLongue": "isən tənte",
+      "français": "nom féminin",
+      "source": "Etiquettes_tamajaq.pdf",
+      "status": "mapped",
+      "inXml": true,
+      "count": 1168,
+      "anglais": "feminine noun"
+    },
+    {
+      "value": "sn-ẓwn. yy.",
+      "formeLongue": "isən iẓẓəwen yey",
+      "français": "nom composé masculin",
+      "source": "Etiquettes_tamajaq.pdf",
+      "status": "mapped",
+      "inXml": true,
+      "count": 111,
+      "anglais": "masculine compound noun"
+    },
+    {
+      "value": "sml. yy.",
+      "formeLongue": "asamal yey",
+      "français": "adjectif masculin",
+      "source": "Etiquettes_tamajaq.pdf",
+      "status": "mapped",
+      "inXml": true,
+      "count": 59,
+      "anglais": "masculine adjective"
+    },
+    {
+      "value": "sn-ẓwn. tnt.",
+      "formeLongue": "isən iẓẓəwen tənte",
+      "français": "nom composé féminin",
+      "source": "Etiquettes_tamajaq.pdf",
+      "status": "mapped",
+      "inXml": true,
+      "count": 47,
+      "anglais": "feminine compound noun"
+    },
+    {
+      "value": "sn-xln. yy.",
+      "formeLongue": "isən xalalan yey",
+      "français": "nom propre masculin",
+      "source": "Etiquettes_tamajaq.pdf",
+      "status": "mapped",
+      "inXml": true,
+      "count": 17,
+      "anglais": "masculine proper noun"
+    },
+    {
+      "value": "tɣrt.",
+      "formeLongue": "təɣərit",
+      "français": "exclamation, interjection",
+      "source": "Etiquettes_tamajaq.pdf",
+      "status": "mapped",
+      "inXml": true,
+      "count": 14,
+      "anglais": "exclamation / interjection"
+    },
+    {
+      "value": "sn-nml.",
+      "formeLongue": "isən n anamal",
+      "français": "nom verbal",
+      "source": "Etiquettes_tamajaq.pdf",
+      "status": "mapped",
+      "inXml": true,
+      "count": 13,
+      "anglais": "verbal noun"
+    },
+    {
+      "value": "stkr-dg.",
+      "formeLongue": "əṣatkar n adag",
+      "français": "adverbe de lieu",
+      "source": "Etiquettes_tamajaq.pdf",
+      "status": "mapped",
+      "inXml": true,
+      "count": 11,
+      "anglais": "locative adverb"
+    },
+    {
+      "value": "nml-ẓwn.",
+      "formeLongue": "anamal iẓẓəwen",
+      "français": "verbe composé",
+      "source": "Etiquettes_tamajaq.pdf",
+      "status": "mapped",
+      "inXml": true,
+      "count": 10,
+      "anglais": "compound verb"
+    },
+    {
+      "value": "sn-xln. tnt.",
+      "formeLongue": "isən xalalan tənte",
+      "français": "nom propre féminin",
+      "source": "Etiquettes_tamajaq.pdf",
+      "status": "mapped",
+      "inXml": true,
+      "count": 10,
+      "anglais": "feminine proper noun"
+    },
+    {
+      "value": "sml. tnt.",
+      "formeLongue": "asamal tənte",
+      "français": "adjectif féminin",
+      "source": "Etiquettes_tamajaq.pdf",
+      "status": "mapped",
+      "inXml": true,
+      "count": 3,
+      "anglais": "feminine adjective"
+    },
+    {
+      "value": "stkr.",
+      "formeLongue": "əṣatkar",
+      "français": "adverbe",
+      "source": "Etiquettes_tamajaq.pdf",
+      "status": "mapped",
+      "inXml": true,
+      "count": 3,
+      "anglais": "adverb"
+    },
+    {
+      "value": "ḍkḍ.",
+      "formeLongue": "əḍḍəkuḍ",
+      "français": "numéral",
+      "source": "Etiquettes_tamajaq.pdf",
+      "status": "mapped",
+      "inXml": true,
+      "count": 3,
+      "anglais": "numeral"
+    },
+    {
+      "value": "smmdɣ-tl.",
+      "formeLongue": "əsəmmadaɣ ən təla",
+      "français": "pronom dépendant",
+      "source": "Etiquettes_tamajaq.pdf",
+      "status": "mapped",
+      "inXml": true,
+      "count": 2,
+      "anglais": "dependent pronoun"
+    },
+    {
+      "value": "stkr-lwq.",
+      "formeLongue": "əṣatkar n alwaq",
+      "français": "adverbe de temps",
+      "source": "Etiquettes_tamajaq.pdf",
+      "status": "mapped",
+      "inXml": true,
+      "count": 2,
+      "anglais": "temporal adverb"
+    },
+    {
+      "value": "nlk.",
+      "formeLongue": "ənalkam",
+      "français": "déterminant",
+      "source": "Etiquettes_tamajaq.pdf",
+      "status": "mapped",
+      "inXml": true,
+      "count": 1,
+      "anglais": "determiner"
+    },
+    {
+      "value": "smmdɣ-tl. tnt.",
+      "formeLongue": "əsəmmadaɣ ən təla tənte",
+      "français": "pronom dépendant féminin",
+      "source": "Etiquettes_tamajaq.pdf",
+      "status": "mapped",
+      "inXml": true,
+      "count": 1,
+      "anglais": "feminine dependent pronoun"
+    },
+    {
+      "value": "smmdɣ-tl. yy.",
+      "formeLongue": "əsəmmadaɣ ən təla yey",
+      "français": "pronom dépendant masculin",
+      "source": "Etiquettes_tamajaq.pdf",
+      "status": "mapped",
+      "inXml": true,
+      "count": 1,
+      "anglais": "masculine dependent pronoun"
+    },
+    {
+      "value": "stkr-ḍkḍ.",
+      "formeLongue": "əṣatkar n əḍəkuḍ",
+      "français": "adverbe de quantité",
+      "source": "Etiquettes_tamajaq.pdf",
+      "status": "mapped",
+      "inXml": true,
+      "count": 1,
+      "anglais": "quantitative adverb"
+    },
+    {
+      "value": "tmsq.",
+      "formeLongue": "təmaṣaq",
+      "français": "particule de rection",
+      "source": "Etiquettes_tamajaq.pdf",
+      "status": "mapped",
+      "inXml": true,
+      "count": 1,
+      "anglais": "rection particle"
+    },
+    {
+      "value": "tnlkmt.",
+      "formeLongue": "tənalkamt",
+      "français": "particule de rapprochement",
+      "source": "Etiquettes_tamajaq.pdf",
+      "status": "mapped",
+      "inXml": true,
+      "count": 1,
+      "anglais": "approaching particle"
+    },
+    {
+      "value": "snml",
+      "formeLongue": "isən n anamal",
+      "français": "nom verbal",
+      "anglais": "verbal noun",
+      "source": "projected: snml ≈ sn-nml. (Etiquettes)",
+      "status": "assumed",
+      "inXml": true,
+      "count": 6,
+      "note": "Abbreviation inside variante_cat values; ≈ sn-nml."
+    }
+  ],
+  "elementsGlossary": [
+    {
+      "tamajaq": "albab",
+      "français": "article",
+      "kind": "element",
+      "source": "Elements_tamajaq_v2.pdf"
+    },
+    {
+      "tamajaq": "almaɣna",
+      "français": "définition",
+      "kind": "element",
+      "source": "Elements_tamajaq_v2.pdf"
+    },
+    {
+      "tamajaq": "anammelu",
+      "français": "synonyme",
+      "kind": "element",
+      "source": "Elements_tamajaq_v2.pdf"
+    },
+    {
+      "tamajaq": "anəmmezrəy",
+      "français": "antonyme",
+      "kind": "element",
+      "source": "Elements_tamajaq_v2.pdf"
+    },
+    {
+      "tamajaq": "ǎkku",
+      "français": "voir",
+      "kind": "element",
+      "source": "Elements_tamajaq_v2.pdf"
+    },
+    {
+      "tamajaq": "əlfiɣšǎt",
+      "français": "signification",
+      "kind": "element",
+      "source": "Elements_tamajaq_v2.pdf"
+    },
+    {
+      "tamajaq": "əlmisal",
+      "français": "exemple",
+      "kind": "element",
+      "source": "Elements_tamajaq_v2.pdf"
+    },
+    {
+      "tamajaq": "əsəfsəs",
+      "français": "état d’annexion",
+      "kind": "element",
+      "source": "Elements_tamajaq_v2.pdf"
+    },
+    {
+      "tamajaq": "igət",
+      "français": "pluriel",
+      "kind": "element",
+      "source": "Elements_tamajaq_v2.pdf"
+    },
+    {
+      "tamajaq": "tastəqW",
+      "français": "variante tawəlləmət (ouest)",
+      "kind": "element",
+      "source": "Elements_tamajaq_v2.pdf"
+    },
+    {
+      "tamajaq": "tastəqY",
+      "français": "variante tayart (Nord)",
+      "kind": "element",
+      "source": "Elements_tamajaq_v2.pdf"
+    },
+    {
+      "tamajaq": "tazezlit",
+      "français": "genre (masculin / féminin)",
+      "kind": "element",
+      "source": "Elements_tamajaq_v2.pdf"
+    },
+    {
+      "tamajaq": "təfaransist",
+      "français": "français",
+      "kind": "element",
+      "source": "Elements_tamajaq_v2.pdf"
+    },
+    {
+      "tamajaq": "təmuṣt",
+      "français": "catégorie grammaticale",
+      "kind": "element",
+      "source": "Elements_tamajaq_v2.pdf"
+    },
+    {
+      "tamajaq": "təzugəst",
+      "français": "entrée",
+      "kind": "element",
+      "source": "Elements_tamajaq_v2.pdf"
+    },
+    {
+      "tamajaq": "sadderan",
+      "français": "objectif (article)",
+      "kind": "attribute",
+      "source": "Elements_tamajaq_v2.pdf"
+    },
+    {
+      "tamajaq": "sadderan_arat_əlfiɣšat",
+      "français": "objectif (signification)",
+      "kind": "attribute",
+      "source": "Elements_tamajaq_v2.pdf"
+    },
+    {
+      "tamajaq": "@sadderan",
+      "français": "objectif (article)",
+      "kind": "attribute",
+      "source": "Elements_tamajaq_v2.pdf"
+    },
+    {
+      "tamajaq": "@sadderan_arat_əlfiɣšat",
+      "français": "objectif (signification)",
+      "kind": "attribute",
+      "source": "Elements_tamajaq_v2.pdf"
+    }
+  ],
+  "etiquettesGlossary": [
+    {
+      "code": "ḍkḍ.",
+      "formeLongue": "əḍḍəkuḍ",
+      "français": "numéral",
+      "source": "Etiquettes_tamajaq.pdf"
+    },
+    {
+      "code": "nlk.",
+      "formeLongue": "ənalkam",
+      "français": "déterminant",
+      "source": "Etiquettes_tamajaq.pdf"
+    },
+    {
+      "code": "nml-ẓwn.",
+      "formeLongue": "anamal iẓẓəwen",
+      "français": "verbe composé",
+      "source": "Etiquettes_tamajaq.pdf"
+    },
+    {
+      "code": "nml.",
+      "formeLongue": "anamal",
+      "français": "verbe",
+      "source": "Etiquettes_tamajaq.pdf"
+    },
+    {
+      "code": "sml. tnt.",
+      "formeLongue": "asamal tənte",
+      "français": "adjectif féminin",
+      "source": "Etiquettes_tamajaq.pdf"
+    },
+    {
+      "code": "sml. yy.",
+      "formeLongue": "asamal yey",
+      "français": "adjectif masculin",
+      "source": "Etiquettes_tamajaq.pdf"
+    },
+    {
+      "code": "smmdɣ-tl.",
+      "formeLongue": "əsəmmadaɣ ən təla",
+      "français": "pronom dépendant",
+      "source": "Etiquettes_tamajaq.pdf"
+    },
+    {
+      "code": "smmdɣ-tl. tnt.",
+      "formeLongue": "əsəmmadaɣ ən təla tənte",
+      "français": "pronom dépendant féminin",
+      "source": "Etiquettes_tamajaq.pdf"
+    },
+    {
+      "code": "smmdɣ-tl. yy.",
+      "formeLongue": "əsəmmadaɣ ən təla yey",
+      "français": "pronom dépendant masculin",
+      "source": "Etiquettes_tamajaq.pdf"
+    },
+    {
+      "code": "sn-nml.",
+      "formeLongue": "isən n anamal",
+      "français": "nom verbal",
+      "source": "Etiquettes_tamajaq.pdf"
+    },
+    {
+      "code": "sn-xln. tnt.",
+      "formeLongue": "isən xalalan tənte",
+      "français": "nom propre féminin",
+      "source": "Etiquettes_tamajaq.pdf"
+    },
+    {
+      "code": "sn-xln. yy.",
+      "formeLongue": "isən xalalan yey",
+      "français": "nom propre masculin",
+      "source": "Etiquettes_tamajaq.pdf"
+    },
+    {
+      "code": "sn-ẓwn. tnt.",
+      "formeLongue": "isən iẓẓəwen tənte",
+      "français": "nom composé féminin",
+      "source": "Etiquettes_tamajaq.pdf"
+    },
+    {
+      "code": "sn-ẓwn. yy.",
+      "formeLongue": "isən iẓẓəwen yey",
+      "français": "nom composé masculin",
+      "source": "Etiquettes_tamajaq.pdf"
+    },
+    {
+      "code": "sn. tnt.",
+      "formeLongue": "isən tənte",
+      "français": "nom féminin",
+      "source": "Etiquettes_tamajaq.pdf"
+    },
+    {
+      "code": "sn. yy.",
+      "formeLongue": "isən yey",
+      "français": "nom masculin",
+      "source": "Etiquettes_tamajaq.pdf"
+    },
+    {
+      "code": "stkr-dg.",
+      "formeLongue": "əṣatkar n adag",
+      "français": "adverbe de lieu",
+      "source": "Etiquettes_tamajaq.pdf"
+    },
+    {
+      "code": "stkr-ḍkḍ.",
+      "formeLongue": "əṣatkar n əḍəkuḍ",
+      "français": "adverbe de quantité",
+      "source": "Etiquettes_tamajaq.pdf"
+    },
+    {
+      "code": "stkr-lwq.",
+      "formeLongue": "əṣatkar n alwaq",
+      "français": "adverbe de temps",
+      "source": "Etiquettes_tamajaq.pdf"
+    },
+    {
+      "code": "stkr.",
+      "formeLongue": "əṣatkar",
+      "français": "adverbe",
+      "source": "Etiquettes_tamajaq.pdf"
+    },
+    {
+      "code": "tɣrt.",
+      "formeLongue": "təɣərit",
+      "français": "exclamation, interjection",
+      "source": "Etiquettes_tamajaq.pdf"
+    },
+    {
+      "code": "tmsq.",
+      "formeLongue": "təmaṣaq",
+      "français": "particule de rection",
+      "source": "Etiquettes_tamajaq.pdf"
+    },
+    {
+      "code": "tnlkmt.",
+      "formeLongue": "tənalkamt",
+      "français": "particule de rapprochement",
+      "source": "Etiquettes_tamajaq.pdf"
+    }
+  ]
+}
